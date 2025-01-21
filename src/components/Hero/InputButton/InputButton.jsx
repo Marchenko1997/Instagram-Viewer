@@ -1,8 +1,8 @@
-import React from 'react'
+import { SearchButton } from "./InputButton.styled"
 
 const InputButton = () => {
   return (
-    <div>InputButton</div>
+    <SearchButton>Search</SearchButton>
   )
 }
 

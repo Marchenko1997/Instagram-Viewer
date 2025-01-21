@@ -1,15 +1,5 @@
 import styled from "styled-components";
-
-export const InputWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @media screen and (min-width: 1280px) {
-      margin-top: 80px;
-    }
-        
-`
+import { SearchButton } from "../InputButton/InputButton.styled";
 
 export const StyledField = styled.input`
   width: 100%;
@@ -32,7 +22,7 @@ export const StyledField = styled.input`
   }
 
   &:focus {
-    outline: none; 
+    outline: none;
   }
 
   @media screen and (min-width: 768px) {
@@ -46,3 +36,24 @@ export const StyledField = styled.input`
     }
   }
 `;
+
+
+export const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 80px;
+    gap: 20px;
+  }
+
+  &:hover ${StyledField}, &:focus-within ${StyledField} {
+    border-color: var(--color-secondary-dark);
+  }
+
+  &:hover ${SearchButton}, &:focus-within ${SearchButton} {
+    background-color: var(--color-secondary-dark);
+  }
+`;
+
