@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/Header/Header'
-import  Container  from './components/Common/Container/Container'
+import Container from './components/Common/Container/Container'
+import Hero from './components/Hero/Hero'
 
 function App() {
   
@@ -10,7 +11,7 @@ function App() {
       <Header />
       <main>
         <Container>
-
+          <Hero />
         </Container>
       </main>
     </>
