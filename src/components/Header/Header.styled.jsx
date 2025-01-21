@@ -11,12 +11,14 @@ export const HeaderMain = styled.header`
   width: 100%;
   height: 400px;
   position: relative;
+  padding: 20px;
 
   .ellipse1 {
     background: linear-gradient(
       229.54deg,
-      hsla(0, 0%, 100%, 0.15) 15.93%,
-      hsla(0, 0%, 100%, 0.2) 71.29%
+      rgba(244, 228, 215, 0.4) 15.93%,
+      /* Светлый оттенок #f4e4d7 с прозрачностью */ rgba(244, 228, 215, 0.6)
+        71.29% /* Более насыщенный оттенок */
     );
     border-radius: 50%;
     height: 285px;
@@ -29,8 +31,9 @@ export const HeaderMain = styled.header`
   .ellipse2 {
     background: linear-gradient(
       140.63deg,
-      hsla(0, 0%, 100%, 0.15) 13.32%,
-      hsla(0, 0%, 100%, 0.2) 69.77%
+      rgba(244, 228, 215, 0.4) 13.32%,
+      /* Светлый оттенок #f4e4d7 с прозрачностью */ rgba(244, 228, 215, 0.7)
+        69.77% /* Еще более насыщенный оттенок */
     );
     border-radius: 50%;
     height: 332px;
