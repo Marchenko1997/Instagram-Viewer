@@ -1,65 +1,92 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --transition-duration: 400ms ease;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Основные цвета */
+  --bg-main: #f4e4d7; /* Основной фон */
+  --bg-secondary: #f8d9b8; /* Второстепенный фон, например, для подсветки */
+  --color-accent: #efac59; /* Основной акцентный цвет */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Темные цвета */
+  --color-primary-dark: #2713a1; /* Основной темный цвет для текста */
+  --color-secondary-dark: #a11392; /* Вторичный темный цвет для карточек или кнопок */
+
+  /* Вспомогательные цвета */
+  --color-shadow: rgba(23, 19, 161, 0.25); /* Полупрозрачная тень */
+  --color-placeholder: #c8b0c7; /* Цвет текста-заполнителя */
+  --color-error: #d24562; /* Цвет для ошибок */
+  --color-white: #fff; /* Чисто белый цвет */
+  --color-overlay: rgba(255, 255, 255, 0.4); /* Прозрачный белый для оверлеев */
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
- 
+  font-family: "Fredoka", sans-serif;
+  background: var(--bg-main);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-primary-dark);
+  overflow-x: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+img {
+  display: block;
+  max-width: 100%;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Animation keyframes for components */
+@keyframes appear {
+  0% {
+    opacity: 0;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  100% {
+    opacity: 1;
   }
 }
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ====================================================== */
