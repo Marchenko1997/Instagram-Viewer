@@ -7,7 +7,7 @@ export const MainTitleWrapper = styled.div`
 
   @media screen and (min-width: 1280px) {
     margin-top: 40px;
-    margin-left: 340px;
+    margin-left: 240px;
     flex-direction: column;
     gap: 50px;
   }

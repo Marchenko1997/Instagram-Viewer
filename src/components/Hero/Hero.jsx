@@ -1,8 +1,11 @@
 import InputHero from "./InputHero/InputHero"
+import ListOfStories from "./ListOfStories/ListOfStories"
 
 const Hero = () => {
   return (
-    <div><InputHero/></div>
+      <div><InputHero />
+      <ListOfStories/>
+      </div>
   )
 }
 

@@ -4,9 +4,9 @@ const HeaderTitle = () => {
 
   return (
     <MainTitleWrapper>
-      <MainTitle>StoriesIG - Watch Instagram Stories Anonymously</MainTitle>
+      <MainTitle>Stories IG - Watch Instagram Stories Anonymously</MainTitle>
       <HeaderText>
-        Watch Instagram stories anonymously and completely free.
+        Browse Instagram stories incognito and entirely free.
       </HeaderText>
     </MainTitleWrapper>
   ); 
