@@ -1,9 +1,9 @@
 import { StoryCard, StoryImage, StoryTitle } from "./StoryItem.styled"
 
-const StoryItem = ({title, imageUrl}) => {
+const StoryItem = ({title, image}) => {
   return (
       <StoryCard>
-          <StoryImage src={imageUrl} alt={title} />
+          <StoryImage src={image} alt={title} />
           <StoryTitle title={title}/>
     </StoryCard>
   )

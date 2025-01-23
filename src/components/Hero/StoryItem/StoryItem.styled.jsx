@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
 export const StoryCard = styled.div`
-  width: 150px;
-  height: 200px;
+  width: 100%;
+  height: auto;
   margin: 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid #ccc;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 
   &:hover {
@@ -20,9 +18,8 @@ export const StoryCard = styled.div`
 `;
 
 export const StoryImage = styled.img`
-  width: 80%;
-  height: auto;
-  border-radius: 50%;
+  width: 400px;
+  height: 600px;
   margin-bottom: 10px;
 `;
 

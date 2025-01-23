@@ -1,5 +1,5 @@
 import StoryItem from "../StoryItem/StoryItem";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   selectStories,
   selectIsLoading,
@@ -8,9 +8,9 @@ import {
 import { StoriesContainer } from "./ListOfStories.styled";
 
 const ListOfStories = () => {
-const stories = useSelector(selectStories);
-const isLoading = useSelector(selectIsLoading);
-const error = useSelector(selectError);
+  const stories = useSelector(selectStories);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   if (isLoading) {
     return <p>Загрузка историй...</p>;
@@ -23,7 +23,11 @@ const error = useSelector(selectError);
   return (
     <StoriesContainer>
       {stories.map((story) => (
-        <StoryItem key={story.id} title={story.title} image={story.imageUrl} />
+        <StoryItem
+          key={story.id}
+          title={story.title}
+          image={story.image}
+        />
       ))}
     </StoriesContainer>
   );

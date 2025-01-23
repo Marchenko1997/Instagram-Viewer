@@ -10,13 +10,19 @@ export const loadStories = createAsyncThunk(
   "stories/loadStories",
   async (profile, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/instagram-viewer`, {
-        params: { profile },
-        headers: {
-          "X-RapidAPI-Key": API_KEY,
-          "X-RapidAPI-Host": "instagram-viewer.p.rapidapi.com",
-        },
-      });
+     const response = await axios.get(`${API_BASE_URL}/instagram-viewer`, {
+       params: { profile },
+       headers: {
+         "X-RapidAPI-Key": API_KEY,
+         "X-RapidAPI-Host": "instagram-viewer.p.rapidapi.com",
+       },
+       withCredentials: true,
+     });
+        console.log("API Response:", response.data);
+         if (!response.data.stories || response.data.stories.length === 0) {
+           toast.warn("Истории не найдены!");
+         }
+
       return response.data.stories;
     } catch (error) {
       toast.error("Ошибка загрузки историй!");
