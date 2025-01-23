@@ -1,8 +1,11 @@
-import React from 'react'
+import { StoryCard, StoryImage, StoryTitle } from "./StoryItem.styled"
 
-const StoryItem = () => {
+const StoryItem = ({title, imageUrl}) => {
   return (
-    <div>StoryItem</div>
+      <StoryCard>
+          <StoryImage src={imageUrl} alt={title} />
+          <StoryTitle title={title}/>
+    </StoryCard>
   )
 }
 

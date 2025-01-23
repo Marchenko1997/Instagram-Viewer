@@ -1,8 +1,8 @@
 import { SearchButton } from "./InputButton.styled"
 
-const InputButton = () => {
+const InputButton = ({onClick}) => {
   return (
-    <SearchButton>Search</SearchButton>
+    <SearchButton onClick={onClick}>Search</SearchButton>
   )
 }
 
