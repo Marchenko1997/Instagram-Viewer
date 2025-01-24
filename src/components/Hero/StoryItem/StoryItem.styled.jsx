@@ -3,12 +3,9 @@ import styled from "styled-components";
 export const StoryCard = styled.div`
   width: 100%;
   height: auto;
-  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ccc;
-  border-radius: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
 
   &:hover {
@@ -18,13 +15,19 @@ export const StoryCard = styled.div`
 `;
 
 export const StoryImage = styled.img`
-  width: 400px;
-  height: 600px;
-  margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
 `;
 
 export const StoryTitle = styled.h4`
   font-size: 14px;
   text-align: center;
   color: #333;
+`;
+
+export const StoryVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
 `;

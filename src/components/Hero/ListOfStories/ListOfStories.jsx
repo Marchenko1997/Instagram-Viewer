@@ -27,6 +27,7 @@ const ListOfStories = () => {
           key={story.id}
           title={story.title}
           image={story.image}
+          video={story.video}
         />
       ))}
     </StoriesContainer>
