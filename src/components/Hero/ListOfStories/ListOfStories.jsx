@@ -1,33 +1,18 @@
 import StoryItem from "../StoryItem/StoryItem";
-import { useSelector } from "react-redux";
-import {
-  selectStories,
-  selectIsLoading,
-  selectError,
-} from "../../../redux/selectors";
 import { StoriesContainer } from "./ListOfStories.styled";
 
-const ListOfStories = () => {
-  const stories = useSelector(selectStories);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-
-  if (isLoading) {
-    return <p>Загрузка историй...</p>;
-  }
-
-  if (error) {
-    return <p>Ошибка: {error}</p>;
-  }
+const ListOfStories = ({ stories }) => {
+     console.log("Rendering stories:", stories);
+  
 
   return (
     <StoriesContainer>
-      {stories.map((story) => (
+      {stories.map((story, index) => (
         <StoryItem
-          key={story.id}
-          title={story.title}
-          image={story.image}
-          video={story.video}
+          key={story.id || index}
+          title={story.title || `Story ${index + 1}`}
+          image={story.image_versions?.items?.[0]?.url || ""}
+          video={story.video_url || ""}
         />
       ))}
     </StoriesContainer>

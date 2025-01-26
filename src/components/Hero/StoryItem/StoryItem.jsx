@@ -1,4 +1,8 @@
-import { StoryCard, StoryImage, StoryTitle, StoryVideo } from "./StoryItem.styled"
+import {
+  StoryCard,
+  StoryImage,
+  StoryVideo,
+} from "./StoryItem.styled";
 
 const StoryItem = ({ title, image, video }) => {
   return (
@@ -6,14 +10,13 @@ const StoryItem = ({ title, image, video }) => {
       {video && video.trim() ? (
         <StoryVideo controls>
           <source src={video} type="video/mp4" />
-          Ваш браузер не поддерживает видео.
+          Your browser does not support video.
         </StoryVideo>
       ) : (
         <StoryImage src={image} alt={title} />
       )}
-      <StoryTitle title={title} />
     </StoryCard>
   );
 };
 
-export default StoryItem
+export default StoryItem;

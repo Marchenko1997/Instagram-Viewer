@@ -2,20 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { loadStories } from "./operations";
 
 const initialState = {
-  profile: "",
   stories: [],
   isLoading: false,
   error: null,
 };
 
-const storySlice = createSlice({
+const storiesSlice = createSlice({
   name: "stories",
   initialState,
-  reducers: {
-    setProfile(state, action) {
-      state.profile = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(loadStories.pending, (state) => {
@@ -24,7 +19,7 @@ const storySlice = createSlice({
       })
       .addCase(loadStories.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.stories = action.payload;
+         state.stories = action.payload;
       })
       .addCase(loadStories.rejected, (state, action) => {
         state.isLoading = false;
@@ -33,6 +28,4 @@ const storySlice = createSlice({
   },
 });
 
-export const { setProfile } = storySlice.actions;
-
-export default storySlice.reducer;
+export default storiesSlice.reducer;

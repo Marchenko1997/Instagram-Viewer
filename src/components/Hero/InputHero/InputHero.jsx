@@ -1,15 +1,14 @@
+import { useState } from "react";
 import { InputWrapper, StyledField } from "./InputHero.styled";
 import InputButton from "../InputButton/InputButton";
-import { useDispatch } from "react-redux";
-import { setProfile } from "../../../redux/slice";
-import { loadStories } from "../../../redux/operations";
+import { useUsername } from "../../../context/UsernameContext";
 
 const InputHero = () => {
-  const dispatch = useDispatch();
-  let inputValue = "";
+  const { setUsername } = useUsername(); 
+  const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (e) => {
-    inputValue = e.target.value;
+    setInputValue(e.target.value)
   };
 
   const handleSearch = () => {
@@ -18,8 +17,7 @@ const InputHero = () => {
       return;
     }
 
-      dispatch(setProfile(inputValue));
-      dispatch(loadStories(inputValue));
+    setUsername(inputValue); 
   };
 
   return (
@@ -27,6 +25,7 @@ const InputHero = () => {
       <StyledField
         type="text"
         placeholder="@username or link"
+        value={inputValue}
         onChange={handleInputChange}
       />
       <InputButton onClick={handleSearch} />

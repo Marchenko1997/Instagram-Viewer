@@ -20,11 +20,6 @@ export const StoryImage = styled.img`
   border-radius: 10px 10px 0 0;
 `;
 
-export const StoryTitle = styled.h4`
-  font-size: 14px;
-  text-align: center;
-  color: #333;
-`;
 
 export const StoryVideo = styled.video`
   width: 100%;
