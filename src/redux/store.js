@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import profileSlice from "./profile/slice";
 import storiesReducer from "./stories/slice";
 import postsReducer from "./posts/slice";
+import highlightsReducer from "./highlights/slice";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; 
 
@@ -20,6 +21,17 @@ const postsPersistConfig = {
   storage,
 };
 
+const highlightsPersistConfig = {
+  key: "highlights",
+  storage,
+};
+
+const persistedHighlightsReducer = persistReducer(
+  highlightsPersistConfig,
+  highlightsReducer
+);
+
+
 const persistedProfileReducer = persistReducer(
   profilePersistConfig,
   profileSlice
@@ -36,6 +48,7 @@ const store = configureStore({
     profile: persistedProfileReducer,
     stories: persistedStoriesReducer,
     posts: persistedPostsReducer,
+    highlights: persistedHighlightsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
