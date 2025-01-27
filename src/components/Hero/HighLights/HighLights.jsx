@@ -1,8 +1,10 @@
-import HighLightCircle from "./HighLightCircle/HighLightCircle"
+import HighLightList from "./HighLightList/HighLightList"
 
 const HighLights = () => {
   return (
-    <div>HighLights</div>
+      <div>
+        <HighLightList />
+    </div>
   )
 }
 

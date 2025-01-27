@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadProfile } from "../../redux/profile/operations";
 import { loadStories } from "../../redux/stories/operations";
 import { fetchPosts } from "../../redux/posts/operations";
+import { fetchHighlights } from "../../redux/highlights/operations";
 import {
   selectUser,
   selectIsLoading as selectProfileLoading,
@@ -25,6 +26,7 @@ const Hero = () => {
       dispatch(loadProfile(username));
         dispatch(loadStories(username));
         dispatch(fetchPosts(username));
+        dispatch(fetchHighlights(username));
     }
   }, [dispatch, username]);
 

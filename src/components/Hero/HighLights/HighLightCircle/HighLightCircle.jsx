@@ -1,9 +1,12 @@
-import React from 'react'
+import { HighlightWrapper, HighlightImage, HighlightTitle } from "./HighLightCircle.styled"
 
-const HighLightCircle = () => {
+const HighLightCircle = ({ title, imageSrc }) => {
   return (
-    <div>HighLightCircle</div>
-  )
-}
+    <HighlightWrapper>
+      <HighlightImage src={imageSrc} alt={title} />
+      <HighlightTitle>{title}</HighlightTitle>
+    </HighlightWrapper>
+  );
+};
 
-export default HighLightCircle
+export default HighLightCircle;

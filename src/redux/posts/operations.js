@@ -17,7 +17,7 @@ export const fetchPosts = createAsyncThunk(
           "x-rapidapi-host": "instagram-scraper-api2.p.rapidapi.com",
         },
       });
-             console.log("Posts API response:", response.data);
+             
       return response.data;
       } catch (error) {
            console.error(

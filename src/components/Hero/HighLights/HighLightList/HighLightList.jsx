@@ -1,9 +1,29 @@
-import HighLightCard from "../HighLightCard/HighLightCard"
+import { useSelector } from "react-redux";
+import { selectHighlights } from "../../../../redux/highlights/selectors";
+import HighLightCircle from "../HighLightCircle/HighLightCircle";
+import { HighlightsContainer } from "./HighLightList.styled";
 
 const HighLightList = () => {
-  return (
-    <div>HighLightList</div>
-  )
-}
+  const highlights = useSelector(selectHighlights);
 
-export default HighLightList
+  console.log("Highlights from Redux:", highlights);
+
+  if (!highlights || highlights.length === 0) {
+    return <p>No highlights available</p>;
+  }
+
+  return (
+    <HighlightsContainer>
+      {highlights.map((highlight) => (
+        <li key={highlight.id}>
+          <HighLightCircle
+            title={highlight.title}
+            imageSrc={highlight.cover_media || ""}
+          />
+        </li>
+      ))}
+    </HighlightsContainer>
+  );
+};
+
+export default HighLightList;

@@ -18,7 +18,6 @@ export const loadStories = createAsyncThunk(
         },
       });
 
-      console.log("Stories Response:", response.data);
 
       return response.data.data?.items || [];
     } catch (error) {

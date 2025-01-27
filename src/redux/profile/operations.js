@@ -18,7 +18,7 @@ export const loadProfile = createAsyncThunk(
         },
       });
 
-      console.log("Profile Response:", response.data);
+     
 
      
       return response.data.data || null; 
