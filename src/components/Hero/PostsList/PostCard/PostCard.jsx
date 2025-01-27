@@ -16,7 +16,7 @@ const PostCard = ({ post }) => {
 
   if (!mediaUrl) {
     console.error("Invalid media URL for post:", post);
-    return null; // Если нет URL, пропускаем этот пост
+    return null; 
   }
 
   const proxiedMediaUrl = `${proxyUrl}?url=${encodeURIComponent(mediaUrl)}`;
