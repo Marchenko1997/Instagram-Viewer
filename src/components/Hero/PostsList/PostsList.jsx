@@ -24,9 +24,31 @@ const PostsList = () => {
     return <p>No posts available.</p>;
   }
 
+ 
+  const flattenedPosts = posts.flatMap((post) => {
+    if (post?.media_type === 8 && post?.carousel_media?.length) {
+      
+      return post.carousel_media.map((media, index) => ({
+        ...post, 
+        id: `${post.id}_carousel_${index}`,
+        ...media, 
+      }));
+    }
+    return post; 
+  });
+
+
+  const validPosts = flattenedPosts.filter((post) => {
+    const mediaUrl =
+      post.media_type === 2
+        ? post.video_url
+        : post.image_versions2?.candidates?.[0]?.url || post.thumbnail_url;
+    return !!mediaUrl; 
+  });
+
   return (
     <PostsContainer>
-      {posts.map((post, index) => (
+      {validPosts.map((post, index) => (
         <PostCard key={post.id || index} post={post} />
       ))}
     </PostsContainer>

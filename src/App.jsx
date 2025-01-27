@@ -6,6 +6,7 @@ import { UsernameProvider } from "./context/UsernameContext";
 import { Routes, Route } from "react-router-dom";
 import ListOfStories from "./components/Hero/ListOfStories/ListOfStories";
 import PostsList from './components/Hero/PostsList/PostsList';
+import HighLights from './components/Hero/HighLights/HighLights';
 
 function App() {
   
@@ -25,7 +26,7 @@ function App() {
               <Route path="stories" element={<ListOfStories />} />
               <Route
                 path="highlights"
-                element={<div>Highlights content will be here</div>}
+                element={<HighLights />}
               />
               <Route
                 path="reels"
