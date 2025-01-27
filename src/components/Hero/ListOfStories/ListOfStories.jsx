@@ -1,4 +1,4 @@
-import StoryItem from "../StoryItem/StoryItem";
+import StoryItem from "./StoryItem/StoryItem";
 import { StoriesContainer } from "./ListOfStories.styled";
 import { useSelector } from "react-redux";
 import {
@@ -9,10 +9,10 @@ import {
 const ListOfStories = () => {
     const stories = useSelector(selectStories);
     const storiesLoading = useSelector(selectStoriesLoading); 
-     console.log("Rendering stories:", stories);
+    
   
       if (storiesLoading) {
-        return <p>Loading stories...</p>; // Отображение индикатора загрузки
+        return <p>Loading stories...</p>; 
       }
 
   return (

@@ -5,6 +5,7 @@ import Hero from './components/Hero/Hero'
 import { UsernameProvider } from "./context/UsernameContext";
 import { Routes, Route } from "react-router-dom";
 import ListOfStories from "./components/Hero/ListOfStories/ListOfStories";
+import PostsList from './components/Hero/PostsList/PostsList';
 
 function App() {
   
@@ -19,7 +20,7 @@ function App() {
               {" "}
               <Route
                 path="posts"
-                element={<div>Posts content will be here</div>}
+                element={<PostsList />}
               />
               <Route path="stories" element={<ListOfStories />} />
               <Route
