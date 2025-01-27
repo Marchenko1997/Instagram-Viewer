@@ -1,16 +1,32 @@
 import { PostCardContainer, PostImage, PostVideo } from "./PostCard.styled";
 
+const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
+
 const PostCard = ({ post }) => {
-  const isVideo = post?.media_type === 2 || post?.media_type === 8;
+  if (!post) {
+    console.error("Post data is missing");
+    return null;
+  }
+
+  const isVideo = post.media_type === 2;
   const mediaUrl =
-    post?.thumbnail_url || post?.image_versions?.items?.[0]?.url || "";
+    post.video_url ||
+    post.image_versions2?.candidates?.[0]?.url ||
+    post.thumbnail_url;
+
+  if (!mediaUrl) {
+    console.error("Invalid media URL for post:", post);
+    return null; // Если нет URL, пропускаем этот пост
+  }
+
+  const proxiedMediaUrl = `${proxyUrl}?url=${encodeURIComponent(mediaUrl)}`;
 
   return (
     <PostCardContainer>
       {isVideo ? (
-        <PostVideo src={post?.video_url || mediaUrl} controls />
+        <PostVideo src={proxiedMediaUrl} controls />
       ) : (
-        <PostImage src={mediaUrl} alt={post?.caption || "Post Image"} />
+        <PostImage src={proxiedMediaUrl} alt="Post Media" />
       )}
     </PostCardContainer>
   );

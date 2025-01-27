@@ -8,7 +8,7 @@ import {
 } from "./Profile.styled";
 import { getStats } from "../../../utils/getStats";
 
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
 
 const Profile = ({ profileData }) => {
   if (!profileData) {
@@ -16,8 +16,11 @@ const Profile = ({ profileData }) => {
     }
     
     const stats = getStats(profileData);
+     const avatarUrl = `${proxyUrl}?url=${encodeURIComponent(
+       profileData.profile_pic_url
+     )}`;
     
-      const avatarUrl = `${proxyUrl}${profileData.profile_pic_url}`;
+
   return (
     <ProfileContainer>
       <Avatar
