@@ -20,7 +20,7 @@ export const Avatar = styled.img`
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 2px solid #ccc;
+  border: 2px solid var(--color-border); 
 `;
 
 export const Username = styled.h2`
@@ -31,7 +31,7 @@ export const Username = styled.h2`
   font-weight: 500;
   line-height: 26px;
   margin-bottom: 0;
-  color: #333;
+  color: var(--main-text); 
 `;
 
 export const FullName = styled.h3`
@@ -39,7 +39,7 @@ export const FullName = styled.h3`
   font-weight: 700;
   grid-area: full-name;
   margin: 0;
-  color: #666;
+  color: var(--tertiary-text);
 `;
 
 export const Biography = styled.p`
@@ -48,7 +48,7 @@ export const Biography = styled.p`
   margin: 0;
   white-space: pre-wrap;
   font-size: 1rem;
-  color: #555;
+  color: var(--secondary-text); 
 `;
 
 export const Stats = styled.ul`
@@ -65,16 +65,15 @@ export const Stats = styled.ul`
     font-style: normal;
 
     .stats_value {
-      font-weight: 600; /* Жирный шрифт для значений */
+      font-weight: 600;
       font-size: 16px;
-      color: #333;
+      color: var(--main-text); 
     }
 
     .stats_name {
-      font-weight: 400; /* Обычный шрифт для названий */
+      font-weight: 400;
       font-size: 14px;
-      color: #555;
+      color: var(--secondary-text);
     }
   }
-
 `;

@@ -8,17 +8,20 @@ import {
 } from "./Profile.styled";
 import { getStats } from "../../../utils/getStats";
 
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+
 const Profile = ({ profileData }) => {
   if (!profileData) {
     return <p>No profile data available</p>; 
     }
     
-  const stats = getStats(profileData);
-
+    const stats = getStats(profileData);
+    
+      const avatarUrl = `${proxyUrl}${profileData.profile_pic_url}`;
   return (
     <ProfileContainer>
       <Avatar
-        src={profileData.profile_pic_url}
+        src={avatarUrl}
         crossOrigin="anonymous"
         alt={profileData.full_name || "User"}
       />

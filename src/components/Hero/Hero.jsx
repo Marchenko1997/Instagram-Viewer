@@ -6,40 +6,35 @@ import {
   selectUser,
   selectIsLoading as selectProfileLoading,
 } from "../../redux/profile/selectors";
-import {
-  selectStories,
-  selectIsLoading as selectStoriesLoading,
-} from "../../redux/stories/selectors";
-import { useUsername } from "../../context/UsernameContext"; 
+import { useUsername } from "../../context/UsernameContext";
 import Profile from "./Profile/Profile";
-import ListOfStories from "./ListOfStories/ListOfStories";
 import InputHero from "./InputHero/InputHero";
+import Tabs from "./Tabs/Tabs";
+import { Outlet } from "react-router-dom";
 
 const Hero = () => {
-  const { username } = useUsername(); 
+  const { username } = useUsername();
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const stories = useSelector(selectStories);
   const profileLoading = useSelector(selectProfileLoading);
-  const storiesLoading = useSelector(selectStoriesLoading);
+  
 
   useEffect(() => {
     if (username) {
-      dispatch(loadProfile(username)); 
-      dispatch(loadStories(username)); 
+      dispatch(loadProfile(username));
+      dispatch(loadStories(username));
     }
   }, [dispatch, username]);
 
-
-  if (profileLoading || storiesLoading) {
-    return <p>Loading...</p>; 
-  }
-
+   if (profileLoading) {
+     return <p>Loading...</p>;
+   }
   return (
     <div>
       <InputHero />
       <Profile profileData={user} />
-      <ListOfStories stories={stories} />
+      <Tabs />
+      <Outlet />
     </div>
   );
 };
