@@ -17,8 +17,13 @@ export const fetchReels = createAsyncThunk(
         },
       });
 
+      console.log("Full API Reels Response:", response.data);
+
       // Обработка данных из API
       const items = response.data.data?.items;
+
+      console.log("Reels Items:", items);
+
       if (!items || !Array.isArray(items)) {
         throw new Error("No reels found or invalid data format.");
       }

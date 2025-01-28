@@ -4,6 +4,7 @@ import { loadProfile } from "../../redux/profile/operations";
 import { loadStories } from "../../redux/stories/operations";
 import { fetchPosts } from "../../redux/posts/operations";
 import { fetchHighlights } from "../../redux/highlights/operations";
+import { fetchReels } from "../../redux/reels/operations";
 import {
   selectUser,
   selectIsLoading as selectProfileLoading,
@@ -27,6 +28,7 @@ const Hero = () => {
         dispatch(loadStories(username));
         dispatch(fetchPosts(username));
         dispatch(fetchHighlights(username));
+        dispatch(fetchReels(username));
     }
   }, [dispatch, username]);
 

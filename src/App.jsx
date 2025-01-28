@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import ListOfStories from "./components/Hero/ListOfStories/ListOfStories";
 import PostsList from './components/Hero/PostsList/PostsList';
 import HighLights from './components/Hero/HighLights/HighLights';
+import ReelsList from './components/Hero/ReelsList/ReelsList';
 
 function App() {
   
@@ -30,7 +31,7 @@ function App() {
               />
               <Route
                 path="reels"
-                element={<div>Reels content will be here</div>}
+                element={<ReelsList />}
               />
             </Route>
           </Routes>
