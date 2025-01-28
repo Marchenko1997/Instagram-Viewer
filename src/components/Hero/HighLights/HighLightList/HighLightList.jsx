@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectHighlights } from "../../../../redux/highlights/selectors";
 import HighLightCircle from "../HighLightCircle/HighLightCircle";
-import {  SliderContainer } from "./HighLightList.styled";
+import { SliderContainer } from "./HighLightList.styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
@@ -13,6 +13,15 @@ const HighLightList = () => {
   if (!highlights || highlights.length === 0) {
     return <p>No highlights available</p>;
   }
+
+const validHighlights = highlights.filter(
+  (highlight) =>
+    typeof highlight.cover_media === "string" &&
+    highlight.cover_media.trim() !== ""
+);
+
+console.log("Valid Highlights:", validHighlights);
+
 
   return (
     <SliderContainer>
@@ -31,11 +40,11 @@ const HighLightList = () => {
           },
         }}
       >
-        {highlights.map((highlight) => (
+        {validHighlights.map((highlight) => (
           <SwiperSlide key={highlight.id}>
             <HighLightCircle
               title={highlight.title}
-              imageSrc={highlight.cover_media?.cropped_image_version?.url || ""}
+              imageSrc={highlight.cover_media}
             />
           </SwiperSlide>
         ))}
