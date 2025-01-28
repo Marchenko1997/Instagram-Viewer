@@ -18,7 +18,7 @@ const HighLightList = () => {
     <SliderContainer>
       <Swiper
         spaceBetween={4}
-        slidesPerView={9} 
+        slidesPerView={9}
         breakpoints={{
           1024: {
             slidesPerView: 9,
@@ -35,7 +35,7 @@ const HighLightList = () => {
           <SwiperSlide key={highlight.id}>
             <HighLightCircle
               title={highlight.title}
-              imageSrc={highlight.cover_media || ""}
+              imageSrc={highlight.cover_media?.cropped_image_version?.url || ""}
             />
           </SwiperSlide>
         ))}
