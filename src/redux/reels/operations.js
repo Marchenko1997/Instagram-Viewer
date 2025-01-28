@@ -19,9 +19,8 @@ export const fetchReels = createAsyncThunk(
 
       console.log("Full API Reels Response:", response.data);
 
-      // Обработка данных из API
+      // Проверяем, что данные API корректны
       const items = response.data.data?.items;
-
       console.log("Reels Items:", items);
 
       if (!items || !Array.isArray(items)) {

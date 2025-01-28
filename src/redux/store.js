@@ -3,6 +3,7 @@ import profileSlice from "./profile/slice";
 import storiesReducer from "./stories/slice";
 import postsReducer from "./posts/slice";
 import highlightsReducer from "./highlights/slice";
+import reelsReducer from "./reels/slice";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; 
 
@@ -26,6 +27,11 @@ const highlightsPersistConfig = {
   storage,
 };
 
+const reelsPersistConfig = {
+  key: "reels",
+  storage,
+};
+
 const persistedHighlightsReducer = persistReducer(
   highlightsPersistConfig,
   highlightsReducer
@@ -42,6 +48,7 @@ const persistedStoriesReducer = persistReducer(
 );
 
 const persistedPostsReducer = persistReducer(postsPersistConfig, postsReducer);
+const persistedReelsReducer = persistReducer(reelsPersistConfig, reelsReducer);
 
 const store = configureStore({
   reducer: {
@@ -49,6 +56,7 @@ const store = configureStore({
     stories: persistedStoriesReducer,
     posts: persistedPostsReducer,
     highlights: persistedHighlightsReducer,
+    reels: persistedReelsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
