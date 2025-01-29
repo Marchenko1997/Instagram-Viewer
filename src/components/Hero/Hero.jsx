@@ -32,14 +32,13 @@ const Hero = () => {
     }
   }, [dispatch, username]);
 
-   if (profileLoading) {
-     return <p>Loading...</p>;
-   }
+ 
   return (
     <div>
       <InputHero />
+      {profileLoading && <p>Loading...</p>}
       <Profile profileData={user} />
-      <Tabs />
+      {username && <Tabs />}
       <Outlet />
     </div>
   );

@@ -4,7 +4,7 @@ import {
   ReelsCaption,
 } from "./ReelsCard.styled";
 
-const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
+const proxyUrl = "http://localhost:3001/proxy"; 
 
 const ReelsCard = ({ videoUrl, likeCount }) => {
       if (!videoUrl) {

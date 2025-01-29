@@ -14,11 +14,9 @@ const HighLightList = () => {
     return <p>No highlights available</p>;
   }
 
-const validHighlights = highlights.filter(
-  (highlight) =>
-    typeof highlight.cover_media === "string" &&
-    highlight.cover_media.trim() !== ""
-);
+  const validHighlights = highlights.filter(
+    (highlight) => highlight.cover_media && highlight.cover_media.trim() !== ""
+  );
 
 console.log("Valid Highlights:", validHighlights);
 

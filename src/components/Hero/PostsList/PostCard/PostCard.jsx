@@ -1,6 +1,6 @@
 import { PostCardContainer, PostImage, PostVideo } from "./PostCard.styled";
 
-const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
+const proxyUrl = "http://localhost:3001/proxy"; 
 
 const PostCard = ({ post }) => {
   if (!post) {
