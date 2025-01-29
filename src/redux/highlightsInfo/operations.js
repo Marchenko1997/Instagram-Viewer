@@ -6,16 +6,15 @@ const API_URL_HIGHLIGHT_INFO =
 const API_KEY = "7ad1f570e1msha811d9d6db256dap1ec7b0jsn6c9028573957";
 const API_HOST = "instagram-scraper-api2.p.rapidapi.com";
 
-// Получаем медиафайлы для конкретного Highlight по ID
+
 export const fetchHighlightMedia = createAsyncThunk(
   "highlightMedia/fetchHighlightMedia",
   async (highlightId, { rejectWithValue }) => {
     try {
-      // ✅ Удаляем "highlight:" если оно есть
       const cleanedHighlightId = highlightId.replace("highlight:", "");
 
       const response = await axios.get(API_URL_HIGHLIGHT_INFO, {
-        params: { highlight_id: cleanedHighlightId }, // 👈 передаём очищенный ID
+        params: { highlight_id: cleanedHighlightId },
         headers: {
           "x-rapidapi-key": API_KEY,
           "x-rapidapi-host": API_HOST,
@@ -30,14 +29,37 @@ export const fetchHighlightMedia = createAsyncThunk(
       }
 
       return {
-        highlightId: cleanedHighlightId, // ✅ теперь сохранён без "highlight:"
-        media: items.map((item) => ({
-          id: item.id,
-          media_type: item.media_type, // 1 - Image, 2 - Video
-          media_url:
-            item.media_type === 1 ? item.image_versions.items[0].url : null,
-          video_url: item.media_type === 2 ? item.video_versions[0].url : null,
-        })),
+        highlightId: cleanedHighlightId,
+        media: items.map((item) => {
+          console.log("Processing item:", item);
+
+          const isVideo = item.media_type === 2;
+          const isImage = item.media_type === 1;
+
+          // Проверяем несколько возможных источников изображения
+          const imageUrl =
+            isImage && item.image_versions?.items?.length
+              ? item.image_versions.items[0].url
+              : item.image_versions2?.items?.length
+              ? item.image_versions2.items[0].url
+              : response.data.data.additional_data?.cover_media
+                  ?.cropped_image_version?.url || null;
+
+          console.log(`Extracted Image URL: ${imageUrl}`);
+
+          const videoUrl = isVideo
+            ? item.video_versions?.[0]?.url || item.video_url
+            : null;
+
+          console.log(`Extracted Video URL: ${videoUrl}`);
+
+          return {
+            id: item.id,
+            media_type: item.media_type,
+            media_url: imageUrl,
+            video_url: videoUrl,
+          };
+        }),
       };
     } catch (error) {
       console.error("API Error:", error.response?.data || error.message);

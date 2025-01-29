@@ -17,10 +17,10 @@ export const fetchHighlights = createAsyncThunk(
         },
       });
 
-      console.log("Full API Response:", response.data);
+   
 
       const items = response.data.data?.items;
-      console.log("Items:", items);
+     
 
       if (!items || !Array.isArray(items) || items.length === 0) {
         throw new Error("API response is missing 'items' or items are empty.");
