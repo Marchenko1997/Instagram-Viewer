@@ -18,8 +18,14 @@ const HighLights = () => {
 
   const handleHighlightClick = (highlight) => {
     setSelectedHighlight(highlight);
-    dispatch(fetchHighlightMedia(highlight.id)); // Загружаем сторисы
   };
+
+
+  useEffect(() => {
+    if (selectedHighlight) {
+      dispatch(fetchHighlightMedia(selectedHighlight.id));
+    }
+  }, [selectedHighlight, dispatch]);
 
   return (
     <div>

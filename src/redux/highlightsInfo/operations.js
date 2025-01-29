@@ -39,16 +39,15 @@ export const fetchHighlightMedia = createAsyncThunk(
           // Проверяем несколько возможных источников изображения
           const imageUrl =
             isImage && item.image_versions?.items?.length
-              ? item.image_versions.items[0].url
+              ? item.image_versions.items.find((img) => img.url)?.url
               : item.image_versions2?.items?.length
-              ? item.image_versions2.items[0].url
+              ? item.image_versions2.items.find((img) => img.url)?.url
               : response.data.data.additional_data?.cover_media
                   ?.cropped_image_version?.url || null;
-
           console.log(`Extracted Image URL: ${imageUrl}`);
 
           const videoUrl = isVideo
-            ? item.video_versions?.[0]?.url || item.video_url
+            ? item.video_versions?.find((v) => v.url)?.url || item.video_url
             : null;
 
           console.log(`Extracted Video URL: ${videoUrl}`);

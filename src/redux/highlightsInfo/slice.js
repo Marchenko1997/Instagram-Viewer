@@ -18,9 +18,10 @@ const highlightMediaSlice = createSlice({
       })
       .addCase(fetchHighlightMedia.fulfilled, (state, action) => {
         console.log(
-          `Media fetched for highlight ${action.payload.highlightId}:`,
-          action.payload.media
+          "✅ State before update:",
+          JSON.parse(JSON.stringify(state.media))
         );
+        console.log("✅ New media received:", action.payload);
         state.isLoading = false;
         state.media[action.payload.highlightId] = action.payload.media;
       })

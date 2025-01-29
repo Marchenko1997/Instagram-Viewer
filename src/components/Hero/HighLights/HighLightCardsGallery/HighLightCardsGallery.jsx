@@ -2,6 +2,11 @@ import { HighlightsContainer } from "./HighLightCardsGallery.styled";
 import HighlightCard from "../HighLightCard/HighLightCard";
 
 const HighLightCardsGallery = ({ highlight, media, isLoading }) => {
+     console.log("Rendering HighLightCardsGallery:", {
+       highlight,
+       media,
+       isLoading,
+     });
   if (isLoading) {
     return <p>Loading stories...</p>;
   }
