@@ -30,7 +30,7 @@ export const fetchHighlights = createAsyncThunk(
         id: item.id,
         title: item.title || "Untitled",
         cover_media: item.cover_media?.cropped_image_version?.url || "",
-        media_count: item.media_count || 0, // Добавлено количество медиа
+        media_count: item.media_count || 0, 
       }));
     } catch (error) {
       console.error("API Error:", error.response?.data || error.message);
