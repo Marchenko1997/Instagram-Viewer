@@ -4,7 +4,7 @@ import {
   HighlightVideo,
 } from "./HighLightCard.styled";
 
-const proxyUrl = "http://localhost:3001/proxy"; 
+const proxyUrl = "http://localhost:3001/proxy";
 
 const HighlightCard = ({ highlight }) => {
   if (!highlight) {
@@ -12,11 +12,8 @@ const HighlightCard = ({ highlight }) => {
     return null;
   }
 
-  const isVideo = highlight.media_type === 2; 
-  const mediaUrl =
-    highlight.video_url ||
-    highlight.image_versions2?.candidates?.[0]?.url ||
-    highlight.thumbnail_url;
+  const isVideo = highlight.media_type === 2;
+  const mediaUrl = highlight.video_url || highlight.media_url;
 
   if (!mediaUrl) {
     console.error("Invalid media URL for highlight:", highlight);

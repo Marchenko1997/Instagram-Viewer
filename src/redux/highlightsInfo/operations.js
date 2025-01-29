@@ -11,15 +11,18 @@ export const fetchHighlightMedia = createAsyncThunk(
   "highlightMedia/fetchHighlightMedia",
   async (highlightId, { rejectWithValue }) => {
     try {
+      // ✅ Удаляем "highlight:" если оно есть
+      const cleanedHighlightId = highlightId.replace("highlight:", "");
+
       const response = await axios.get(API_URL_HIGHLIGHT_INFO, {
-        params: { highlight_id: highlightId },
+        params: { highlight_id: cleanedHighlightId }, // 👈 передаём очищенный ID
         headers: {
           "x-rapidapi-key": API_KEY,
           "x-rapidapi-host": API_HOST,
         },
       });
 
-      console.log(`Media for Highlight ${highlightId}:`, response.data);
+      console.log(`Media for Highlight ${cleanedHighlightId}:`, response.data);
 
       const items = response.data.data?.items;
       if (!items || !Array.isArray(items) || items.length === 0) {
@@ -27,7 +30,7 @@ export const fetchHighlightMedia = createAsyncThunk(
       }
 
       return {
-        highlightId,
+        highlightId: cleanedHighlightId, // ✅ теперь сохранён без "highlight:"
         media: items.map((item) => ({
           id: item.id,
           media_type: item.media_type, // 1 - Image, 2 - Video
