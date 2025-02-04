@@ -1,17 +1,15 @@
-import './App.css'
-import Header from './components/Header/Header'
-import Container from './components/Common/Container/Container'
-import Hero from './components/Hero/Hero'
+import "./App.css";
+import Header from "./components/Header/Header";
+import Container from "./components/Common/Container/Container";
+import Hero from "./components/Hero/Hero";
 import { UsernameProvider } from "./context/UsernameContext";
 import { Routes, Route } from "react-router-dom";
 import ListOfStories from "./components/Hero/ListOfStories/ListOfStories";
-import PostsList from './components/Hero/PostsList/PostsList';
-import HighLights from './components/Hero/HighLights/HighLights';
-import ReelsList from './components/Hero/ReelsList/ReelsList';
+import PostsList from "./components/Hero/PostsList/PostsList";
+import HighLights from "./components/Hero/HighLights/HighLights";
+import ReelsList from "./components/Hero/ReelsList/ReelsList";
 
 function App() {
-  
-
   return (
     <UsernameProvider>
       <Header />
@@ -19,20 +17,11 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Hero />}>
-              {" "}
-              <Route
-                path="posts"
-                element={<PostsList />}
-              />
+              <Route index element={<PostsList />} />
+              <Route path="posts" element={<PostsList />} />
               <Route path="stories" element={<ListOfStories />} />
-              <Route
-                path="highlights"
-                element={<HighLights />}
-              />
-              <Route
-                path="reels"
-                element={<ReelsList />}
-              />
+              <Route path="highlights" element={<HighLights />} />
+              <Route path="reels" element={<ReelsList />} />
             </Route>
           </Routes>
         </Container>
@@ -41,4 +30,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

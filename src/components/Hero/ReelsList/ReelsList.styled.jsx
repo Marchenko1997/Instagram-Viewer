@@ -5,5 +5,4 @@ export const ReelsContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   gap: 20px;
-  padding: 20px;
 `;
