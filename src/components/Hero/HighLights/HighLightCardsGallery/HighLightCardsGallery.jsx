@@ -1,5 +1,6 @@
 import { HighlightsContainer } from "./HighLightCardsGallery.styled";
 import HighlightCard from "../HighLightCard/HighLightCard";
+import Loader from "../../../Common/Loader/Loader";
 
 const HighLightCardsGallery = ({ highlight, media, isLoading }) => {
      console.log("Rendering HighLightCardsGallery:", {
@@ -8,7 +9,7 @@ const HighLightCardsGallery = ({ highlight, media, isLoading }) => {
        isLoading,
      });
   if (isLoading) {
-    return <p>Loading stories...</p>;
+    return <Loader />;
   }
 
   if (!media || media.length === 0) {

@@ -17,8 +17,8 @@ export const HeaderMain = styled.header`
     background: linear-gradient(
       229.54deg,
       rgba(244, 228, 215, 0.4) 15.93%,
-      /* Светлый оттенок #f4e4d7 с прозрачностью */ rgba(244, 228, 215, 0.6)
-        71.29% /* Более насыщенный оттенок */
+       #f4e4d7  rgba(244, 228, 215, 0.6)
+        71.29% 
     );
     border-radius: 50%;
     height: 285px;

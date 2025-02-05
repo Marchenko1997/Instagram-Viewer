@@ -6,6 +6,7 @@ import {
 } from "../../../redux/reels/selectors";
 import ReelsCard from "./ReelsCard/ReelsCard";
 import { ReelsContainer } from "./ReelsList.styled";
+import Loader from "../../Common/Loader/Loader";
 
 const ReelsList = () => {
  
@@ -14,7 +15,7 @@ const ReelsList = () => {
   const error = useSelector(selectReelsError);
 
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
   if (error) return <p>Error: {error}</p>;
 
  

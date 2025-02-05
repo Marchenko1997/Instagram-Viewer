@@ -5,6 +5,7 @@ import {
   selectStories,
   selectIsLoading as selectStoriesLoading,
 } from "../../../redux/stories/selectors";
+import Loader from "../../Common/Loader/Loader";
 
 const ListOfStories = () => {
     const stories = useSelector(selectStories);
@@ -12,7 +13,7 @@ const ListOfStories = () => {
     
   
       if (storiesLoading) {
-        return <p>Loading stories...</p>; 
+        return <Loader />; 
       }
 
   return (

@@ -14,6 +14,7 @@ import Profile from "./Profile/Profile";
 import InputHero from "./InputHero/InputHero";
 import Tabs from "./Tabs/Tabs";
 import { Outlet } from "react-router-dom";
+import Loader from "../Common/Loader/Loader";
 
 const Hero = () => {
   const { username } = useUsername();
@@ -36,7 +37,7 @@ const Hero = () => {
   return (
     <div>
       <InputHero />
-      {profileLoading && <p>Loading...</p>}
+      {profileLoading && <Loader />}
       <Profile profileData={user} />
       {username && <Tabs />}
       <Outlet />

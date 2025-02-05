@@ -6,6 +6,7 @@ import {
 } from "../../../redux/posts/selectors";
 import PostCard from "./PostCard/PostCard";
 import { PostsContainer } from "./PostsList.styled";
+import Loader from "../../Common/Loader/Loader";
 
 const PostsList = () => {
   const posts = useSelector(selectPosts);
@@ -13,7 +14,7 @@ const PostsList = () => {
   const error = useSelector(selectError);
 
   if (isLoading) {
-    return <p>Loading posts...</p>;
+    return <Loader />;
   }
 
   if (error) {
