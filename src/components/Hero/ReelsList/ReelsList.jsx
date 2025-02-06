@@ -1,4 +1,6 @@
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 import {
   selectReels,
   selectReelsLoading,
@@ -15,9 +17,14 @@ const ReelsList = () => {
   const error = useSelector(selectReelsError);
 
 
-  if (isLoading) return <Loader />;
-  if (error) return <p>Error: {error}</p>;
+  useEffect(() => {
+    if (error) {
+      toast.error(`Error: ${error}`);
+    }
+  }, [error]);
 
+  if (isLoading) return <Loader />;
+  if (error) return null;
  
   const validReels = reels.filter((reel) => reel.videoUrl);
 

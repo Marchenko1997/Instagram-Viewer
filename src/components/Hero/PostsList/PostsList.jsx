@@ -1,4 +1,6 @@
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 import {
   selectPosts,
   selectIsLoading,
@@ -13,17 +15,24 @@ const PostsList = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  if (isLoading) {
-    return <Loader />;
-  }
 
-  if (error) {
-    return <p>Error loading posts: {error}</p>;
-  }
 
-  if (!posts || posts.length === 0) {
-    return <p>No posts available.</p>;
-  }
+  useEffect(() => {
+    if (error) {
+      toast.error(`Error loading posts: ${error}`);
+    }
+  }, [error]);
+
+
+   useEffect(() => {
+     if (!posts || posts.length === 0) {
+       toast.info("No posts available.");
+     }
+   }, [posts]);
+
+    if (isLoading) {
+      return <Loader />;
+    }
 
  
   const flattenedPosts = posts.flatMap((post) => {
