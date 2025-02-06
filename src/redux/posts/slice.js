@@ -20,10 +20,10 @@ const postsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
-        const { data } = action.payload; 
+        const { data } = action.payload;
         state.isLoading = false;
-        state.user = data.user; 
-        state.posts = data.items; 
+        state.user = data.user;
+        state.posts = data.items;
         state.paginationToken = action.payload.pagination_token;
       })
       .addCase(fetchPosts.rejected, (state, action) => {

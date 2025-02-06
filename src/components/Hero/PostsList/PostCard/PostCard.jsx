@@ -1,6 +1,13 @@
-import { PostCardContainer, PostImage, PostVideo } from "./PostCard.styled";
+import {
+  PostCardContainer,
+  PostImage,
+  PostVideo,
+  PostMeta,
+} from "./PostCard.styled";
+import { formatDistanceToNow } from "date-fns";
+import { formatNumber } from "../../../../utils/formatNumber";
 
-const proxyUrl = "http://localhost:3001/proxy"; 
+const proxyUrl = "http://localhost:3001/proxy";
 
 const PostCard = ({ post }) => {
   if (!post) {
@@ -16,10 +23,24 @@ const PostCard = ({ post }) => {
 
   if (!mediaUrl) {
     console.error("Invalid media URL for post:", post);
-    return null; 
+    return null;
   }
 
   const proxiedMediaUrl = `${proxyUrl}?url=${encodeURIComponent(mediaUrl)}`;
+
+ const publishedDate = post.caption?.created_at
+   ? formatDistanceToNow(new Date(post.caption.created_at * 1000), {
+       addSuffix: true,
+     })
+   : "Unknown";
+
+  const likeCount =
+    post.like_count !== undefined ? formatNumber(post.like_count) : "0";
+  
+
+  const commentCount =
+    post.comment_count !== undefined ? formatNumber(post.comment_count) : "0";
+
 
   return (
     <PostCardContainer>
@@ -28,6 +49,11 @@ const PostCard = ({ post }) => {
       ) : (
         <PostImage src={proxiedMediaUrl} alt="Post Media" />
       )}
+      <PostMeta>
+        <p>{likeCount}</p>
+        <p>{commentCount}</p>
+        <span>{publishedDate}</span>
+      </PostMeta>
     </PostCardContainer>
   );
 };

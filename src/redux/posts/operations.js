@@ -8,8 +8,7 @@ export const fetchPosts = createAsyncThunk(
 
     const API_KEY = "7ad1f570e1msha811d9d6db256dap1ec7b0jsn6c9028573957";
 
-      try {
-        console.log("Fetching posts for username:", username); 
+    try {
       const response = await axios.get(API_URL, {
         params: { username_or_id_or_url: username },
         headers: {
@@ -17,13 +16,13 @@ export const fetchPosts = createAsyncThunk(
           "x-rapidapi-host": "instagram-scraper-api2.p.rapidapi.com",
         },
       });
-             
+
       return response.data;
-      } catch (error) {
-           console.error(
-             "Error fetching posts:",
-             error.response?.data || error.message
-           );
+    } catch (error) {
+      console.error(
+        "Error fetching posts:",
+        error.response?.data || error.message
+      );
       return rejectWithValue(error.response?.data || "Failed to fetch posts");
     }
   }
