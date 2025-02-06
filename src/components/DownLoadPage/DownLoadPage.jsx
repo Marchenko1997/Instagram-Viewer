@@ -21,7 +21,18 @@ const DownLoadPage = () => {
 
   const handleBack = () => {
     navigate("/");
-  };
+    };
+    
+    const handleDownload = () => { 
+        if (mediaUrl) { 
+            const link = document.createElement("a");
+            link.href = mediaUrl;
+             link.download = "downloaded-image.jpg"; 
+            document.body.appendChild(link);
+            link.click();
+           document.body.removeChild(link);
+        }
+    }
 
   return (
     <DownloadPageContainer>
@@ -42,7 +53,7 @@ const DownLoadPage = () => {
           ) : (
             <Paragraph>No media available</Paragraph>
           )}
-          <DownloadButton>Download</DownloadButton>
+          <DownloadButton onClick={handleDownload}>Download</DownloadButton>
         </MediaContainer>
       </CardGeneral>
       <MessageContainer>
