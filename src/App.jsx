@@ -8,6 +8,7 @@ import ListOfStories from "./components/Hero/ListOfStories/ListOfStories";
 import PostsList from "./components/Hero/PostsList/PostsList";
 import HighLights from "./components/Hero/HighLights/HighLights";
 import ReelsList from "./components/Hero/ReelsList/ReelsList";
+import DownLoadPage from "./components/DownLoadPage/DownLoadPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="highlights" element={<HighLights />} />
               <Route path="reels" element={<ReelsList />} />
             </Route>
+            <Route path="/download" element={<DownLoadPage />} />
           </Routes>
         </Container>
       </main>

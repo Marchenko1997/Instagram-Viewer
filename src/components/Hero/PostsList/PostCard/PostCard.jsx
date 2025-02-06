@@ -3,9 +3,11 @@ import {
   PostImage,
   PostVideo,
   PostMeta,
+  InfoContainer
 } from "./PostCard.styled";
 import { formatDistanceToNow } from "date-fns";
 import { formatNumber } from "../../../../utils/formatNumber";
+import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
 
 const proxyUrl = "http://localhost:3001/proxy";
 
@@ -41,6 +43,8 @@ const PostCard = ({ post }) => {
   const commentCount =
     post.comment_count !== undefined ? formatNumber(post.comment_count) : "0";
 
+  
+  
 
   return (
     <PostCardContainer>
@@ -49,11 +53,14 @@ const PostCard = ({ post }) => {
       ) : (
         <PostImage src={proxiedMediaUrl} alt="Post Media" />
       )}
-      <PostMeta>
-        <p>{likeCount}</p>
-        <p>{commentCount}</p>
-        <span>{publishedDate}</span>
-      </PostMeta>
+      <InfoContainer>
+        <DownloadBtn mediaUrl={proxiedMediaUrl} />
+        <PostMeta>
+          <p>{likeCount}</p>
+          <p>{commentCount}</p>
+          <span>{publishedDate}</span>
+        </PostMeta>
+      </InfoContainer>
     </PostCardContainer>
   );
 };

@@ -27,6 +27,18 @@ export const PostVideo = styled.video`
   border-radius: 10px;
 `;
 
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  gap: 10px;
+  background-color: var(--bg-main-darker);
+  color: var(--main-text);
+  font-size: 18px;
+`;
+
 export const PostMeta = styled.div`
   display: flex;
   flex-direction: flex;
