@@ -3,7 +3,7 @@ import {
   PostImage,
   PostVideo,
   PostMeta,
-  InfoContainer
+  InfoContainer,
 } from "./PostCard.styled";
 import { formatDistanceToNow } from "date-fns";
 import { formatNumber } from "../../../../utils/formatNumber";
@@ -30,21 +30,17 @@ const PostCard = ({ post }) => {
 
   const proxiedMediaUrl = `${proxyUrl}?url=${encodeURIComponent(mediaUrl)}`;
 
- const publishedDate = post.caption?.created_at
-   ? formatDistanceToNow(new Date(post.caption.created_at * 1000), {
-       addSuffix: true,
-     })
-   : "Unknown";
+  const publishedDate = post.caption?.created_at
+    ? formatDistanceToNow(new Date(post.caption.created_at * 1000), {
+        addSuffix: true,
+      })
+    : "Unknown";
 
   const likeCount =
     post.like_count !== undefined ? formatNumber(post.like_count) : "0";
-  
 
   const commentCount =
     post.comment_count !== undefined ? formatNumber(post.comment_count) : "0";
-
-  
-  
 
   return (
     <PostCardContainer>
@@ -54,7 +50,7 @@ const PostCard = ({ post }) => {
         <PostImage src={proxiedMediaUrl} alt="Post Media" />
       )}
       <InfoContainer>
-        <DownloadBtn mediaUrl={proxiedMediaUrl} />
+        <DownloadBtn mediaUrl={proxiedMediaUrl} mediaType={post.media_type} />
         <PostMeta>
           <p>{likeCount}</p>
           <p>{commentCount}</p>

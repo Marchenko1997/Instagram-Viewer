@@ -61,6 +61,12 @@ export const PreviewImage = styled.img`
   margin-bottom: 20px;
 `;
 
+export const PreviewVideo = styled.video`
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+`;
+
 export const DownloadButton = styled.button`
   background: linear-gradient(
     266.47deg,

@@ -8,7 +8,8 @@ import {
   SubHeading,
   Paragraph,
   MediaContainer,
-  PreviewImage,
+    PreviewImage,
+  PreviewVideo,
   BackButton,
 } from "./DownLoadPage.styled";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -17,22 +18,27 @@ const DownLoadPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+ 
+
   const mediaUrl = location.state?.mediaUrl;
+  const isVideo = location.state?.mediaType === 2;
+
+
 
   const handleBack = () => {
     navigate("/");
-    };
-    
-    const handleDownload = () => { 
-        if (mediaUrl) { 
-            const link = document.createElement("a");
-            link.href = mediaUrl;
-             link.download = "downloaded-image.jpg"; 
-            document.body.appendChild(link);
-            link.click();
-           document.body.removeChild(link);
-        }
+  };
+
+  const handleDownload = () => {
+      if (mediaUrl) {
+      const link = document.createElement("a");
+      link.href = mediaUrl;
+      link.download = isVideo ? "downloaded-video.mp4" : "downloaded-image.jpg";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
+  };
 
   return (
     <DownloadPageContainer>
@@ -49,7 +55,13 @@ const DownLoadPage = () => {
         </CardInfo>
         <MediaContainer>
           {mediaUrl ? (
-            <PreviewImage src={mediaUrl} alt="Preview" />
+            isVideo ? (
+              <PreviewVideo src={mediaUrl} controls>
+                Your browser does not support the video tag.
+              </PreviewVideo>
+            ) : (
+              <PreviewImage src={mediaUrl} alt="Preview" />
+            )
           ) : (
             <Paragraph>No media available</Paragraph>
           )}
