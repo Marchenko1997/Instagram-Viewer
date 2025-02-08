@@ -32,6 +32,8 @@ export const StoryVideo = styled.video`
 
 export const LoadContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   padding: 20px;

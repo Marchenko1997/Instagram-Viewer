@@ -24,6 +24,7 @@ const ListOfStories = () => {
           title={story.title || `Story ${index + 1}`}
           image={story.image_versions?.items?.[0]?.url || ""}
           video={story.video_url || ""}
+          takenAt={story.taken_at || null}
         />
       ))}
     </StoriesContainer>

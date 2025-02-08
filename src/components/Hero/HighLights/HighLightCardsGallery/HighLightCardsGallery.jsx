@@ -19,7 +19,13 @@ const HighLightCardsGallery = ({ highlight, media, isLoading }) => {
   return (
     <HighlightsContainer>
       {media.map((story, index) => (
-        <HighlightCard key={`${highlight.id}-${index}`} highlight={story} />
+        <HighlightCard
+          key={`${highlight.id}-${index}`}
+          highlight={{
+            ...story,
+            taken_at: story.taken_at || null, 
+          }}
+        />
       ))}
     </HighlightsContainer>
   );

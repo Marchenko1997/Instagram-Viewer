@@ -36,7 +36,7 @@ export const fetchHighlightMedia = createAsyncThunk(
           const isVideo = item.media_type === 2;
           const isImage = item.media_type === 1;
 
-          // Проверяем несколько возможных источников изображения
+          
           const imageUrl =
             isImage && item.image_versions?.items?.length
               ? item.image_versions.items.find((img) => img.url)?.url

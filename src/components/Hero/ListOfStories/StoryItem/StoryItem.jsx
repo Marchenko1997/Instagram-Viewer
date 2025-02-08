@@ -5,16 +5,21 @@ import {
   LoadContainer
 } from "./StoryItem.styled";
 import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
+import { formatDistanceToNowStrict } from "date-fns";
 
 const proxyUrl = "http://localhost:3001/proxy";
 
-const StoryItem = ({ title, image, video }) => {
+const StoryItem = ({ title, image, video, takenAt }) => {
 
   const isVideo = video && video.trim();
   
  const mediaUrl = isVideo
    ? `${proxyUrl}?url=${encodeURIComponent(video)}`
-   : `${proxyUrl}?url=${encodeURIComponent(image)}`;
+    : `${proxyUrl}?url=${encodeURIComponent(image)}`;
+  
+  const publishedDate = takenAt
+    ? formatDistanceToNowStrict(new Date(takenAt * 1000), { addSuffix: true })
+    : "Unknown";
 
   return (
     <StoryCard>
@@ -28,6 +33,7 @@ const StoryItem = ({ title, image, video }) => {
       )}
       <LoadContainer>
         <DownloadBtn mediaUrl={mediaUrl} mediaType={isVideo ? 2 : 1} />
+        <p>{publishedDate}</p>
       </LoadContainer>
     </StoryCard>
   );

@@ -30,6 +30,7 @@ export const HighlightVideo = styled.video`
 
 export const LoadContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
