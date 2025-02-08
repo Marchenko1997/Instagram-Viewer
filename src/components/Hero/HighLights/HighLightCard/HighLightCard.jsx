@@ -2,7 +2,9 @@ import {
   HighlightCardContainer,
   HighlightImage,
   HighlightVideo,
+  LoadContainer
 } from "./HighLightCard.styled";
+import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
 
 const proxyUrl = "http://localhost:3001/proxy";
 
@@ -29,6 +31,12 @@ const HighlightCard = ({ highlight }) => {
       ) : (
         <HighlightImage src={proxiedMediaUrl} alt="Highlight Media" />
       )}
+      <LoadContainer>
+        <DownloadBtn
+          mediaUrl={proxiedMediaUrl}
+          mediaType={highlight.media_type}
+        />
+      </LoadContainer>
     </HighlightCardContainer>
   );
 };

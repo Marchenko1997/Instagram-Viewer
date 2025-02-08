@@ -4,8 +4,10 @@ export const HighlightCardContainer = styled.div`
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg-main-darker);
   transition: transform 0.3s, box-shadow 0.3s;
 
   &:hover {
@@ -24,4 +26,11 @@ export const HighlightVideo = styled.video`
   width: 100%;
   height: 100%;
   border-radius: 10px;
+`;
+
+export const LoadContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 `;
