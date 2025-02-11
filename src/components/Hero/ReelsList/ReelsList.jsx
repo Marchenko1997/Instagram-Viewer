@@ -36,6 +36,8 @@ const ReelsList = () => {
           videoUrl={reel.videoUrl}
           caption={reel.caption}
           likeCount={reel.likeCount}
+          createdAt={reel.createdAt} 
+          commentCount={reel.commentCount}
         />
       ))}
     </ReelsContainer>

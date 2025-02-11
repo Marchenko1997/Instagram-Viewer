@@ -11,6 +11,7 @@ export const ReelsCardContainer = styled.div`
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  background-color: var(--bg-main-darker);
 
   &:hover {
     transform: scale(1.05);
@@ -27,6 +28,10 @@ export const ReelsVideo = styled.video`
 export const ReelsCaption = styled.div`
   margin-top: 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  gap: 10px;
 
   p {
     font-size: 14px;
@@ -35,6 +40,11 @@ export const ReelsCaption = styled.div`
 
   span {
     font-size: 12px;
-    color: gray;
+    color: var(--main-text);
   }
+`;
+
+export const ReelsMeta = styled.div`
+display: flex;
+gap: 8px;
 `;

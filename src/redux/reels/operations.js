@@ -31,6 +31,7 @@ export const fetchReels = createAsyncThunk(
         id: item.id,
         caption: item.caption?.text || "",
         likeCount: item.like_count || 0,
+        commentCount: item.comment_count || 0,
         videoUrl: item.video_url || "",
         thumbnailUrl: item.thumbnail_url || "",
         createdAt: item.created_at || "",
