@@ -15,23 +15,74 @@ export const ProfileContainer = styled.div`
   font-family: Roboto, sans-serif;
 `;
 
-export const Avatar = styled.img`
+export const AvatarWrapper = styled.div`
   grid-area: avatar;
+  position: relative;
+  width: 150px;
+  height: 150px;
+`;
+
+
+export const Avatar = styled.img`
+  /* grid-area: avatar; */
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 2px solid var(--color-border); 
+  border: 2px solid var(--color-border);
+
+`;
+
+export const AvatarBtnContainer = styled.div`
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(136, 85, 220, 0.969);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    fill: #fff;
+    stroke: #fff;
+  }
+`;
+
+
+export const UsernameContainer = styled.div`
+  grid-area: username;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 `;
 
 export const Username = styled.h2`
-  grid-area: username;
   font-family: Roboto, sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
   line-height: 26px;
   margin-bottom: 0;
-  color: var(--main-text); 
+  color: var(--main-text);
+`;
+
+export const ProfileLink = styled.a`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  svg {
+    stroke: var(--main-text);
+    fill: transparent;
+  }
 `;
 
 export const FullName = styled.h3`
@@ -48,7 +99,7 @@ export const Biography = styled.p`
   margin: 0;
   white-space: pre-wrap;
   font-size: 1rem;
-  color: var(--secondary-text); 
+  color: var(--secondary-text);
 `;
 
 export const Stats = styled.ul`
@@ -67,7 +118,7 @@ export const Stats = styled.ul`
     .stats_value {
       font-weight: 600;
       font-size: 16px;
-      color: var(--main-text); 
+      color: var(--main-text);
     }
 
     .stats_name {
