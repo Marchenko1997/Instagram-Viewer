@@ -4,10 +4,13 @@ import {
   PostVideo,
   PostMeta,
   InfoContainer,
+  TagsContainer,
+  TagsButton
 } from "./PostCard.styled";
 import { formatDistanceToNow } from "date-fns";
 import { formatNumber } from "../../../../utils/formatNumber";
 import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
+import sprite from "../../../../images/sprite.svg";
 
 const proxyUrl = "http://localhost:3001/proxy";
 
@@ -32,7 +35,7 @@ const PostCard = ({ post }) => {
 
   const publishedDate = post.caption?.created_at
     ? formatDistanceToNow(new Date(post.caption.created_at * 1000), {
-        addSuffix: true,
+        addSuffix: false,
       })
     : "Unknown";
 
@@ -41,20 +44,48 @@ const PostCard = ({ post }) => {
 
   const commentCount =
     post.comment_count !== undefined ? formatNumber(post.comment_count) : "0";
+  
 
+  
   return (
     <PostCardContainer>
-      {isVideo ? (
-        <PostVideo src={proxiedMediaUrl} controls />
-      ) : (
-        <PostImage src={proxiedMediaUrl} alt="Post Media" />
-      )}
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        {isVideo ? (
+          <PostVideo src={proxiedMediaUrl} controls />
+        ) : (
+          <PostImage src={proxiedMediaUrl} alt="Post Media" />
+        )}
+
+        <TagsContainer>
+          <TagsButton>
+            <svg width={30} height={30}>
+              <use xlinkHref={`${sprite}#icon-maximize`}></use>
+            </svg>
+          </TagsButton>
+        </TagsContainer>
+      </div>
+
       <InfoContainer>
         <DownloadBtn mediaUrl={proxiedMediaUrl} mediaType={post.media_type} />
         <PostMeta>
-          <p>{likeCount}</p>
-          <p>{commentCount}</p>
-          <span>{publishedDate}</span>
+          <p>
+            <svg width={18} height={18}>
+              <use xlinkHref={`${sprite}#icon-heart`}></use>
+            </svg>
+            {likeCount}
+          </p>
+          <p>
+            <svg width={18} height={18}>
+              <use xlinkHref={`${sprite}#icon-message-circle`}></use>
+            </svg>
+            {commentCount}
+          </p>
+          <span>
+            <svg width={18} height={18}>
+              <use xlinkHref={`${sprite}#icon-clock`}></use>
+            </svg>
+            {publishedDate}
+          </span>
         </PostMeta>
       </InfoContainer>
     </PostCardContainer>

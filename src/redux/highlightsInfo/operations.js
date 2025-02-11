@@ -57,6 +57,7 @@ export const fetchHighlightMedia = createAsyncThunk(
             media_type: item.media_type,
             media_url: imageUrl,
             video_url: videoUrl,
+            taken_at: item.taken_at,
           };
         }),
       };
