@@ -19,9 +19,7 @@ export const fetchReels = createAsyncThunk(
 
       console.log("Full API Reels Response:", response.data);
 
-    
       const items = response.data.data?.items;
-    
 
       if (!items || !Array.isArray(items)) {
         throw new Error("No reels found or invalid data format.");
@@ -34,7 +32,7 @@ export const fetchReels = createAsyncThunk(
         commentCount: item.comment_count || 0,
         videoUrl: item.video_url || "",
         thumbnailUrl: item.thumbnail_url || "",
-        createdAt: item.created_at || "",
+        createdAt: item.taken_at || item.created_at || "",
       }));
     } catch (error) {
       console.error("Error fetching reels:", error.message);
