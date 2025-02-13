@@ -32,7 +32,7 @@ const Modal = ({ mediaItems = [], currentIndex = 0, onClose }) => {
       document.removeEventListener("keydown", handleKeyDown);
       enableScroll();
     };
-  }, [onClose, mediaItems.length]); // Добавили mediaItems.length в зависимости
+  }, [onClose, mediaItems.length]); 
 
   const handleNext = () => {
     if (mediaItems.length > 1) {
@@ -50,9 +50,6 @@ const Modal = ({ mediaItems = [], currentIndex = 0, onClose }) => {
 
   const mediaItem = mediaItems[index];
 
-  console.log("mediaItems:", mediaItems);
-  console.log("Current Index:", index);
-  console.log("Current mediaItem:", mediaItem);
 
   if (!mediaItem) {
     return null;

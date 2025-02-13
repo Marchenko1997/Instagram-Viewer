@@ -14,11 +14,16 @@ import sprite from "../../../../images/sprite.svg";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
 import { getMediaItems } from "../../../../utils/getMediaItems";
+import { useSelector } from "react-redux";
+import { selectPosts } from "../../../../redux/posts/selectors";
 
 const proxyUrl = "http://localhost:3001/proxy";
 
 const PostCard = ({ post }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const posts = useSelector(selectPosts);
+    const mediaItems = getMediaItems(posts);
 
   if (!post) {
     console.error("Post data is missing");
@@ -50,7 +55,17 @@ const PostCard = ({ post }) => {
   const commentCount =
     post.comment_count !== undefined ? formatNumber(post.comment_count) : "0";
 
-  const mediaItems = getMediaItems(post);
+    const postIndex = mediaItems.findIndex(
+      (item) => item.url === proxiedMediaUrl
+    );
+
+    const handleOpenModal = () => {
+      if (postIndex !== -1) {
+        setCurrentIndex(postIndex); 
+        setIsModalOpen(true);
+      }
+    };
+
 
   return (
     <>
@@ -62,7 +77,7 @@ const PostCard = ({ post }) => {
             <PostImage src={proxiedMediaUrl} alt="Post Media" />
           )}
           <TagsContainer>
-            <TagsButton onClick={() => setIsModalOpen(true)}>
+            <TagsButton onClick={handleOpenModal}>
               <svg width={30} height={30}>
                 <use xlinkHref={`${sprite}#icon-maximize`}></use>
               </svg>
@@ -97,7 +112,7 @@ const PostCard = ({ post }) => {
       {isModalOpen && (
         <Modal
           mediaItems={mediaItems}
-          currentIndex={0}
+          currentIndex={currentIndex}
           onClose={() => setIsModalOpen(false)}
         />
       )}
