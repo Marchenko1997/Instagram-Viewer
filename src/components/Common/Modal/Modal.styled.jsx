@@ -41,7 +41,7 @@ export const MediaContainer = styled.div`
 
 export const LoadButton = styled.button`
   position: absolute;
-  top: -55px;
+  top: ${({ top }) => top || "-55px"};
   right: 15px;
   width: 40px;
   height: 40px;

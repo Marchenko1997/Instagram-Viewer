@@ -74,6 +74,7 @@ const StoryItem = ({ title, image, video, takenAt }) => {
           mediaItems={mediaItems}
           currentIndex={currentIndex}
           onClose={() => setIsModalOpen(false)}
+          loadButtonTop="-195px"
         />
       )}
     </>

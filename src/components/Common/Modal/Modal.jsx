@@ -9,7 +9,12 @@ import {
 import sprite from "../../../images/sprite.svg";
 import { disableScroll, enableScroll } from "../../../utils/scrollLock";
 
-const Modal = ({ mediaItems = [], currentIndex = 0, onClose }) => {
+const Modal = ({
+  mediaItems = [],
+  currentIndex = 0,
+  onClose,
+  loadButtonTop,
+}) => {
   const [index, setIndex] = useState(currentIndex);
 
   useEffect(() => {
@@ -80,7 +85,11 @@ const Modal = ({ mediaItems = [], currentIndex = 0, onClose }) => {
           ) : (
             <img key={mediaItem.url} src={mediaItem.url} alt="Media content" />
           )}
-          <LoadButton aria-label="Download avatar" onClick={handleDownload}>
+          <LoadButton
+            aria-label="Download avatar"
+            onClick={handleDownload}
+            top={loadButtonTop}
+          >
             <svg width={24} height={24}>
               <use xlinkHref={`${sprite}#icon-download`} />
             </svg>
