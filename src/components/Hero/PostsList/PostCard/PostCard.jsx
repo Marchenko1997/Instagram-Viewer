@@ -13,6 +13,7 @@ import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
 import sprite from "../../../../images/sprite.svg";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
+import { getMediaItems } from "../../../../utils/getMediaItems";
 
 const proxyUrl = "http://localhost:3001/proxy";
 
@@ -49,22 +50,7 @@ const PostCard = ({ post }) => {
   const commentCount =
     post.comment_count !== undefined ? formatNumber(post.comment_count) : "0";
 
-const mediaItems = post.carousel_media
-  ? post.carousel_media.map((item) => ({
-      type: item.media_type === 2 ? "video" : "image",
-      url: `${proxyUrl}?url=${encodeURIComponent(
-        item.video_url ||
-          item.image_versions2?.candidates?.[0]?.url ||
-          item.thumbnail_url
-      )}`,
-    }))
-  : [
-      {
-        type: isVideo ? "video" : "image",
-        url: proxiedMediaUrl,
-      },
-    ];
-
+  const mediaItems = getMediaItems(post);
 
   return (
     <>
