@@ -68,12 +68,7 @@ export const PreviewVideo = styled.video`
 `;
 
 export const DownloadButton = styled.button`
-  background: linear-gradient(
-    266.47deg,
-    #2713a1 -15.35%,
-    #a11392 24.88%,
-    #efac59 101.06%
-  );
+  background: #6c63ff;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -81,25 +76,6 @@ export const DownloadButton = styled.button`
   cursor: pointer;
   font-size: 1rem;
   width: 300px;
-
-  &:hover {
-    color: #fff;
-    background: #6c63ff;
-  }
-`;
-
-export const MessageContainer = styled.div`
-  margin-top: 20px;
-`;
-
-export const BackButton = styled.button`
-  background: #6c63ff;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 140px;
 
   &:hover {
     color: #fff;
@@ -111,3 +87,34 @@ export const BackButton = styled.button`
     );
   }
 `;
+
+export const MessageContainer = styled.div`
+  margin-right: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`;
+
+export const BackButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--color-secondary-dark);
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    fill: var(--color-secondary-dark);
+  }
+
+
+`;
+

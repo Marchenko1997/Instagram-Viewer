@@ -13,6 +13,7 @@ import {
   BackButton,
 } from "./DownLoadPage.styled";
 import { useNavigate, useLocation } from "react-router-dom";
+import sprite from "../../images/sprite.svg";
 
 const DownLoadPage = () => {
   const navigate = useNavigate();
@@ -41,37 +42,43 @@ const DownLoadPage = () => {
   };
 
   return (
-    <DownloadPageContainer>
-      <Heading>Download Page</Heading>
-      <CardGeneral>
-        <CardInfo>
-          <SubHeading>Your file is ready</SubHeading>
-          <Paragraph>
-            This is a download page on our site. We do not store your data or
-            host any content on our server. Use our app to download any video or
-            photo from Instagram to your device - free, safe, fast and
-            anonymous.
-          </Paragraph>
-        </CardInfo>
-        <MediaContainer>
-          {mediaUrl ? (
-            isVideo ? (
-              <PreviewVideo src={mediaUrl} controls>
-                Your browser does not support the video tag.
-              </PreviewVideo>
+    <>
+      <DownloadPageContainer>
+        <MessageContainer>
+          <BackButton onClick={handleBack} aria-label="Go Back">
+            <svg width={24} height={24}>
+              <use xlinkHref={`${sprite}#icon-arrow-left`} />
+            </svg>
+          </BackButton>
+        </MessageContainer>
+        <Heading>Download Page</Heading>
+        <CardGeneral>
+          <CardInfo>
+            <SubHeading>Your file is ready</SubHeading>
+            <Paragraph>
+              This is a download page on our site. We do not store your data or
+              host any content on our server. Use our app to download any video
+              or photo from Instagram to your device - free, safe, fast and
+              anonymous.
+            </Paragraph>
+          </CardInfo>
+          <MediaContainer>
+            {mediaUrl ? (
+              isVideo ? (
+                <PreviewVideo src={mediaUrl} controls>
+                  Your browser does not support the video tag.
+                </PreviewVideo>
+              ) : (
+                <PreviewImage src={mediaUrl} alt="Preview" />
+              )
             ) : (
-              <PreviewImage src={mediaUrl} alt="Preview" />
-            )
-          ) : (
-            <Paragraph>No media available</Paragraph>
-          )}
-          <DownloadButton onClick={handleDownload}>Download</DownloadButton>
-        </MediaContainer>
-      </CardGeneral>
-      <MessageContainer>
-        <BackButton onClick={handleBack}>Back</BackButton>
-      </MessageContainer>
-    </DownloadPageContainer>
+              <Paragraph>No media available</Paragraph>
+            )}
+            <DownloadButton onClick={handleDownload}>Download</DownloadButton>
+          </MediaContainer>
+        </CardGeneral>
+      </DownloadPageContainer>
+    </>
   );
 };
 
