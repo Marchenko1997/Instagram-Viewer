@@ -28,6 +28,7 @@ export const MediaContainer = styled.div`
   justify-content: center;
   max-width: 550px;
   max-height: 550px;
+  position: relative;
 
   img,
   video {
@@ -35,6 +36,32 @@ export const MediaContainer = styled.div`
     max-height: 100%;
     border-radius: 10px;
     object-fit: cover;
+  }
+`;
+
+export const LoadButton = styled.button`
+  position: absolute;
+  top: -55px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(136, 85, 220, 0.969);
+  border: 3px solid rgba(136, 85, 220, 0.969);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    border-color: #ffd700;
+  }
+
+  svg {
+    stroke: #fff;
+    fill: rgba(136, 85, 220, 0.969);
   }
 `;
 
@@ -69,5 +96,12 @@ export const NavigationButton = styled.button`
   &:hover {
     transform: translateY(-50%) scale(1.1);
   }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 `;
+
+
 
