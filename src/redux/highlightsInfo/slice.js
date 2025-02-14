@@ -4,7 +4,7 @@ import { fetchHighlightMedia } from "./operations";
 const highlightMediaSlice = createSlice({
   name: "highlightMedia",
   initialState: {
-    media: {}, // Хранит медиафайлы по highlightId
+    media: {},
     isLoading: false,
     error: null,
   },
@@ -22,6 +22,15 @@ const highlightMediaSlice = createSlice({
           JSON.parse(JSON.stringify(state.media))
         );
         console.log("✅ New media received:", action.payload);
+
+        // Добавленный лог перед сохранением в state
+        console.log(
+          "✅ Saving media with ID:",
+          action.payload.highlightId,
+          "Data:",
+          action.payload.media
+        );
+
         state.isLoading = false;
         state.media[action.payload.highlightId] = action.payload.media;
       })

@@ -11,6 +11,7 @@ export const fetchHighlightMedia = createAsyncThunk(
   "highlightMedia/fetchHighlightMedia",
   async (highlightId, { rejectWithValue }) => {
     try {
+            console.log(`🚀 Fetching media for Highlight ID: ${highlightId}`);
       const cleanedHighlightId = highlightId.replace("highlight:", "");
 
       const response = await axios.get(API_URL_HIGHLIGHT_INFO, {

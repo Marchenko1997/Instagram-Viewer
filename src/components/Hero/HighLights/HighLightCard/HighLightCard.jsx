@@ -11,7 +11,7 @@ import { formatDistanceToNowStrict } from "date-fns";
 import sprite from "../../../../images/sprite.svg";
 import { useSelector } from "react-redux";
 import { getHighlightMediaItems } from "../../../../utils/getHighlights";
-import { selectHighlightMedia } from "../../../../redux/highlightsInfo/selectors";
+import { selectHighlightMedia, selectIsLoadingMedia } from "../../../../redux/highlightsInfo/selectors";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
 
@@ -21,10 +21,22 @@ const HighlightCard = ({ highlight }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   console.log("🟠 Highlight ID:", highlight.id); // Проверяем ID
-  const highlightMedia = useSelector(selectHighlightMedia(highlight.id));
-  console.log("🔹 Selected Highlight Media:", highlightMedia);
-  const mediaItems = getHighlightMediaItems(highlightMedia);
-   console.log("✅ Processed Media Items:", mediaItems);
+const highlightMediaItems = useSelector(selectHighlightMedia(highlight.id));
+
+
+
+  console.log("🔹 Selected Highlight Media:", highlightMediaItems);
+
+  const isLoading = useSelector(selectIsLoadingMedia);
+
+  // Ждём загрузку данных
+  if (isLoading) {
+    console.log("⏳ Data is still loading...");
+    return null;
+  }
+
+const mediaItems = getHighlightMediaItems(highlightMediaItems || []);
+  console.log("✅ Processed Media Items:", mediaItems);
 
   if (!highlight) {
     console.error("Highlight data is missing");

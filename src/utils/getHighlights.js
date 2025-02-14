@@ -1,33 +1,33 @@
 const proxyUrl = "http://localhost:3001/proxy";
 
-export const getHighlightMediaItems = (highlights) => {
-  console.log("🟢 Highlights Input:", highlights); // Проверяем входящие данные
+export const getHighlightMediaItems = (items) => {
+  console.log("🟢 Items Input:", items);
 
-  if (!highlights || !Array.isArray(highlights)) {
-    console.log("❌ Highlights are invalid or not an array!");
+  if (!Array.isArray(items) || items.length === 0) {
+    console.log("❌ Items are invalid or empty!");
     return [];
   }
 
-  const processedItems = highlights.flatMap((highlight) => {
-    console.log("🔹 Processing Highlight:", highlight); // Лог каждого элемента
+  return items
+    .map((item) => {
+      console.log("🔹 Processing Item:", item);
 
-    const mediaType = highlight.media_type === 2 ? "video" : "image";
-    const mediaUrl = highlight.video_url || highlight.media_url;
-    const fullUrl = `${proxyUrl}?url=${encodeURIComponent(mediaUrl)}`;
+      const mediaType = item.media_type === 2 ? "video" : "image";
+      const mediaUrl = item.video_url || item.media_url;
 
-    console.log("➡️ Processed Media Item:", {
-      type: mediaType,
-      url: fullUrl,
-    });
+      if (!mediaUrl) {
+        console.log("❌ No valid media URL found!");
+        return null; // Возвращаем null, но позже отфильтруем их
+      }
 
-    return [
-      {
+      const fullUrl = `${proxyUrl}?url=${encodeURIComponent(mediaUrl)}`;
+
+      console.log("➡️ Processed Media Item:", {
         type: mediaType,
         url: fullUrl,
-      },
-    ];
-  });
+      });
 
-  console.log("✅ Final Processed Media Items:", processedItems);
-  return processedItems;
+      return { type: mediaType, url: fullUrl };
+    })
+    .filter(Boolean); // Убираем null значения
 };
