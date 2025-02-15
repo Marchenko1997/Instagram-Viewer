@@ -1,41 +1,15 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import HighLightList from "./HighLightList/HighLightList";
 import HighLightCardsGallery from "./HighLightCardsGallery/HighLightCardsGallery";
-import { fetchHighlightMedia } from "../../../redux/highlightsInfo/operations";
-import {
-  selectHighlightMedia,
-  selectIsLoadingMedia,
-} from "../../../redux/highlightsInfo/selectors";
 
 const HighLights = () => {
   const [selectedHighlight, setSelectedHighlight] = useState(null);
-  const dispatch = useDispatch();
-  const highlightMedia = useSelector(
-    selectHighlightMedia(selectedHighlight?.id)
-  );
-  const isLoading = useSelector(selectIsLoadingMedia);
-
-  const handleHighlightClick = (highlight) => {
-    setSelectedHighlight(highlight);
-  };
-
-
-  useEffect(() => {
-    if (selectedHighlight) {
-      dispatch(fetchHighlightMedia(selectedHighlight.id));
-    }
-  }, [selectedHighlight, dispatch]);
 
   return (
     <div>
-      <HighLightList onHighlightClick={handleHighlightClick} />
+      <HighLightList onHighlightClick={setSelectedHighlight} />
       {selectedHighlight && (
-        <HighLightCardsGallery
-          highlight={selectedHighlight}
-          media={highlightMedia}
-          isLoading={isLoading}
-        />
+        <HighLightCardsGallery highlight={selectedHighlight} />
       )}
     </div>
   );

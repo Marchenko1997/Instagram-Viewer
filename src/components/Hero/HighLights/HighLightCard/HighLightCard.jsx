@@ -9,9 +9,6 @@ import {
 import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
 import { formatDistanceToNowStrict } from "date-fns";
 import sprite from "../../../../images/sprite.svg";
-import { useSelector } from "react-redux";
-import { getHighlightMediaItems } from "../../../../utils/getHighlights";
-import { selectHighlightMedia, selectIsLoadingMedia } from "../../../../redux/highlightsInfo/selectors";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
 
@@ -20,26 +17,11 @@ const proxyUrl = "http://localhost:3001/proxy";
 const HighlightCard = ({ highlight }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  console.log("🟠 Highlight ID:", highlight.id); // Проверяем ID
-const highlightMediaItems = useSelector(selectHighlightMedia(highlight.id));
 
-
-
-  console.log("🔹 Selected Highlight Media:", highlightMediaItems);
-
-  const isLoading = useSelector(selectIsLoadingMedia);
-
-  // Ждём загрузку данных
-  if (isLoading) {
-    console.log("⏳ Data is still loading...");
-    return null;
-  }
-
-const mediaItems = getHighlightMediaItems(highlightMediaItems || []);
-  console.log("✅ Processed Media Items:", mediaItems);
+  console.log("🟠 Rendering HighlightCard:", highlight);
 
   if (!highlight) {
-    console.error("Highlight data is missing");
+    console.error("❌ Highlight data is missing");
     return null;
   }
 
@@ -47,7 +29,7 @@ const mediaItems = getHighlightMediaItems(highlightMediaItems || []);
   const mediaUrl = highlight.video_url || highlight.media_url;
 
   if (!mediaUrl) {
-    console.error("Invalid media URL for highlight:", highlight);
+    console.error("❌ Invalid media URL for highlight:", highlight);
     return null;
   }
 
@@ -60,14 +42,10 @@ const mediaItems = getHighlightMediaItems(highlightMediaItems || []);
     : "Unknown";
 
   const handleOpenModal = () => {
-    console.log("Opening modal..."); // Проверяем, вызывается ли функция
-    console.log("Media Items:", mediaItems); // Проверяем, есть ли данные
-    console.log("Current Media URL:", proxiedMediaUrl); // Проверяем текущий URL
+    console.log("🔍 Opening modal...");
+    console.log("🌟 Media URL:", proxiedMediaUrl);
 
-    const index = mediaItems.findIndex((item) => item.url === proxiedMediaUrl);
-    console.log("Found Index:", index);
-
-    setCurrentIndex(index !== -1 ? index : 0);
+    setCurrentIndex(0);
     setIsModalOpen(true);
   };
 
@@ -82,7 +60,7 @@ const mediaItems = getHighlightMediaItems(highlightMediaItems || []);
         <TagsContainer>
           <TagsButton onClick={handleOpenModal} aria-label="Open modal">
             <svg width={30} height={30}>
-              <use xlinkHref={`${sprite}#icon-maximize`}></use>
+              <use xlinkHref={`${sprite}#icon-maximize`} />
             </svg>
           </TagsButton>
         </TagsContainer>
@@ -93,7 +71,7 @@ const mediaItems = getHighlightMediaItems(highlightMediaItems || []);
           />
           <span>
             <svg width={18} height={18}>
-              <use xlinkHref={`${sprite}#icon-clock`}></use>
+              <use xlinkHref={`${sprite}#icon-clock`} />
             </svg>
             {publishedDate}
           </span>
@@ -101,7 +79,9 @@ const mediaItems = getHighlightMediaItems(highlightMediaItems || []);
       </HighlightCardContainer>
       {isModalOpen && (
         <Modal
-          mediaItems={mediaItems}
+          mediaItems={[
+            { url: proxiedMediaUrl, type: isVideo ? "video" : "image" },
+          ]}
           currentIndex={currentIndex}
           onClose={() => setIsModalOpen(false)}
           loadButtonTop="-195px"
