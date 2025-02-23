@@ -3,14 +3,17 @@ import {
   CardTitle,
   CardImage,
   CardText,
+  TextContainer,
 } from "./GuideCard.styled";
 
 const GuideCard = ({ svg, title, description, reverse }) => {
   return (
     <CardWrapper reverse={reverse}>
-      <CardTitle>{title}</CardTitle>
       <CardImage src={svg} alt={title} />
-      <CardText>{description}</CardText>
+      <TextContainer>
+        <CardTitle>{title}</CardTitle>
+        <CardText>{description}</CardText>
+      </TextContainer>
     </CardWrapper>
   );
 };

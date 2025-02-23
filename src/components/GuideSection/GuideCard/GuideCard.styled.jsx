@@ -3,30 +3,19 @@ import styled from "styled-components";
 export const CardWrapper = styled.div`
   display: grid;
   grid-template-areas:
-    "title"
-    "text"
-    "image";
+    "image"
+    "text";
   grid-template-columns: 1fr;
   padding: 40px 20px;
   font-family: Roboto, sans-serif;
 
   @media screen and (min-width: 600px) {
     grid-template-areas: ${({ reverse }) =>
-      reverse
-        ? `"title image"
-           "text image"` // Теперь текст не будет смещаться вниз
-        : `"image title"
-           "image text"`};
+      reverse ? `"image text"` : `"text image"`};
     grid-template-columns: 1fr 1fr;
   }
 
   @media screen and (min-width: 768px) {
-    grid-template-areas: ${({ reverse }) =>
-      reverse
-        ? `"image title"
-           "image text"` // Оставляем изображение на месте
-        : `"title image"
-           "text image"`}; // Текст теперь идет сразу под заголовком
     grid-template-columns: 41.66% 58.33%;
     border-bottom: 2px dashed #ffa8cf;
   }
@@ -37,15 +26,26 @@ export const CardWrapper = styled.div`
   }
 
   @media screen and (min-width: 1400px) {
-    padding: 40px 100px;
+    padding: 40px 300px;
   }
 `;
+
+export const TextContainer = styled.div`
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Уменьшаем расстояние между заголовком и описанием */
+  justify-content: center;
+  max-width: 400px;
+`;
+
 export const CardTitle = styled.h3`
-  grid-area: title;
-  font-size: 42px;
+  font-size: 32px; /* Сделал немного компактнее */
   font-weight: 700;
-  margin-top: 40px;
+  margin: 0;
   text-align: center;
+  line-height: 1.1;
+  min-height: 30px;
 
   @media screen and (min-width: 600px) {
     text-align: left;
@@ -60,15 +60,14 @@ export const CardImage = styled.img`
 `;
 
 export const CardText = styled.p`
-  grid-area: text;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   margin: 0;
   text-align: center;
   color: var(--secondary-text);
+  line-height: 1.2;
 
   @media screen and (min-width: 600px) {
     text-align: left;
   }
 `;
-
