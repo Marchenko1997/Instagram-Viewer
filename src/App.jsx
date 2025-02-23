@@ -27,7 +27,7 @@ function App() {
             </Route>
             <Route path="/download" element={<DownLoadPage />} />
           </Routes>
-          <MainValues />
+          <MainValues  />
         </Container>
       </main>
     </UsernameProvider>

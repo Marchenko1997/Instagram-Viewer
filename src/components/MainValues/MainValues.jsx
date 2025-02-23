@@ -1,11 +1,11 @@
 import ListValues from "./ListValues/ListValues"
 
 const MainValues = () => {
-  return (
-      <div>
-      <ListValues />
-    </div>
-  )
+    return (
+      <div id="advantages">
+        <ListValues />
+      </div>
+    );
 }
 
 export default MainValues

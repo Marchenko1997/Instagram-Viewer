@@ -1,7 +1,7 @@
 export const links = [
     {
         id: 1,
-        nmae: "Search",
+        name: "Search",
         url: "#search",
     },
     {

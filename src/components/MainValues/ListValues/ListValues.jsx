@@ -4,13 +4,13 @@ import { FeaturesWrapper, FeaturesTitle, FeaturesGrid } from "./ListValues.style
 
 const ListValues = () => {
     return (
-      <FeaturesWrapper>
-            <FeaturesTitle>Instagram Story Viewer Features</FeaturesTitle>
-            <FeaturesGrid>
-                {instaFeatures.map((feature) => (
-                    <CardValue key={feature.id} {...feature}/>
-                ))}
-            </FeaturesGrid>
+      <FeaturesWrapper >
+        <FeaturesTitle>Instagram Story Viewer Features</FeaturesTitle>
+        <FeaturesGrid>
+          {instaFeatures.map((feature) => (
+            <CardValue key={feature.id} {...feature} />
+          ))}
+        </FeaturesGrid>
       </FeaturesWrapper>
     );
 }
