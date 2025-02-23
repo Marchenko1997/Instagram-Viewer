@@ -8,6 +8,8 @@ export const CardWrapper = styled.div`
   grid-template-columns: 1fr;
   padding: 40px 20px;
   font-family: Roboto, sans-serif;
+  align-items: center;
+  min-height: 280px;
 
   @media screen and (min-width: 600px) {
     grid-template-areas: ${({ reverse }) =>
@@ -28,19 +30,33 @@ export const CardWrapper = styled.div`
   @media screen and (min-width: 1400px) {
     padding: 40px 300px;
   }
+
+  /* Уменьшаем паддинги ТОЛЬКО для 2-й, 4-й и 5-й карточки */
+  &:nth-child(2),
+  &:nth-child(4),
+  &:nth-child(5) {
+    padding: 20px 300px;
+  }
+
+  /* Уменьшаем паддинги ТОЛЬКО для 1-й и 3-й карточки */
+  &:nth-child(1),
+  &:nth-child(3) {
+    padding: 20px 300px;
+  }
 `;
 
 export const TextContainer = styled.div`
   grid-area: text;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Уменьшаем расстояние между заголовком и описанием */
+  align-items: flex-start;
+  gap: 10px;
   justify-content: center;
   max-width: 400px;
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 32px; /* Сделал немного компактнее */
+  font-size: 32px;
   font-weight: 700;
   margin: 0;
   text-align: center;
