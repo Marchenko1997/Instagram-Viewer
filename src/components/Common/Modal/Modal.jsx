@@ -6,7 +6,7 @@ import {
   NavigationButton,
   LoadButton,
 } from "./Modal.styled";
-import sprite from "../../../images/sprite.svg";
+import sprite from "../../../../public/images/sprite.svg";
 import { disableScroll, enableScroll } from "../../../utils/scrollLock";
 
 const Modal = ({

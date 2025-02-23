@@ -13,7 +13,7 @@ import {
   BackButton,
 } from "./DownLoadPage.styled";
 import { useNavigate, useLocation } from "react-router-dom";
-import sprite from "../../images/sprite.svg";
+import sprite from "../../../public/images/sprite.svg";
 
 const DownLoadPage = () => {
   const navigate = useNavigate();

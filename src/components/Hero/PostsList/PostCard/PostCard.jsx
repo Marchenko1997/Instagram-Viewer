@@ -10,7 +10,7 @@ import {
 import { formatDistanceToNow } from "date-fns";
 import { formatNumber } from "../../../../utils/formatNumber";
 import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
-import sprite from "../../../../images/sprite.svg";
+import sprite from "../../../../../public/images/sprite.svg";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
 import { getMediaItems } from "../../../../utils/getMediaItems";

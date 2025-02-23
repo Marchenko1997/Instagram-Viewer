@@ -8,7 +8,7 @@ import {
 } from "./ReelsCard.styled";
 import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
 import { formatDistanceToNow } from "date-fns";
-import sprite from "../../../../images/sprite.svg";
+import sprite from "../../../../../public/images/sprite.svg";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
 import { useSelector } from "react-redux";

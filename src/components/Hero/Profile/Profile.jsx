@@ -11,7 +11,7 @@ import {
   Stats,
 } from "./Profile.styled";
 import { getStats } from "../../../utils/getStats";
-import sprite from "../../../images/sprite.svg";
+import sprite from "../../../../public/images/sprite.svg";
 import ModalAvatar from "./ModalAvatar/ModalAvatar";
 import { useState } from "react";
 

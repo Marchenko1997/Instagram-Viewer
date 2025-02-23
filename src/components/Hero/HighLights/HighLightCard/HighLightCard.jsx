@@ -8,7 +8,7 @@ import {
 } from "./HighLightCard.styled";
 import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
 import { formatDistanceToNowStrict } from "date-fns";
-import sprite from "../../../../images/sprite.svg";
+import sprite from "../../../../../public/images/sprite.svg";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
 

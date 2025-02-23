@@ -5,7 +5,7 @@ import {
   LoadButton,
 } from "./ModalAvatar.styled";
 import { useEffect } from "react";
-import sprite from "../../../../images/sprite.svg";
+import sprite from "../../../../../public/images/sprite.svg";
 import { enableScroll, disableScroll } from "../../../../utils/scrollLock";
 
 const ModalAvatar = ({ avatarUrl, onClose }) => {

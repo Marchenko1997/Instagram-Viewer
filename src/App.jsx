@@ -9,6 +9,7 @@ import PostsList from "./components/Hero/PostsList/PostsList";
 import HighLights from "./components/Hero/HighLights/HighLights";
 import ReelsList from "./components/Hero/ReelsList/ReelsList";
 import DownLoadPage from "./components/DownLoadPage/DownLoadPage";
+import MainValues from "./components/MainValues/MainValues";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             </Route>
             <Route path="/download" element={<DownLoadPage />} />
           </Routes>
+          <MainValues />
         </Container>
       </main>
     </UsernameProvider>

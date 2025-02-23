@@ -8,7 +8,7 @@ import {
 } from "./StoryItem.styled";
 import DownloadBtn from "../../../Common/DownloadBtn/DownloadBtn";
 import { formatDistanceToNowStrict } from "date-fns";
-import sprite from "../../../../images/sprite.svg";
+import sprite from "../../../../../public/images/sprite.svg";
 import { useSelector } from "react-redux";
 import { selectStories } from "../../../../redux/stories/selectors";
 import { getStoryMediaItems } from "../../../../utils/getStoryItems";
