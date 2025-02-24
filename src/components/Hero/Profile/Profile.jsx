@@ -75,7 +75,7 @@ const Profile = ({ profileData }) => {
             </li>
           ))}
         </Stats>
-        <FullName>{profileData.full_name || "No Name"}</FullName>
+        <FullName>{profileData.full_name || " "}</FullName>
         <Biography>
           {profileData.biography ||
             (profileData.is_private ? "Private Account" : "Public Account")}
