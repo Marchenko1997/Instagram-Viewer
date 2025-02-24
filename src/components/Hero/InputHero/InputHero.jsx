@@ -11,15 +11,14 @@ const InputHero = () => {
     setInputValue(e.target.value)
   };
 
-  const handleSearch = () => {
-    if (inputValue.trim() === "") {
-      alert("Please enter a username or link");
-      return;
-    }
+ const handleSearch = () => {
+   if (inputValue.trim() === "") {
+     alert("Please enter a username or link");
+     return;
+   }
 
-    setUsername(inputValue); 
-  };
-
+   setUsername(inputValue); // Обновляем username
+ };
   return (
     <InputWrapper>
       <StyledField

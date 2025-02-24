@@ -18,6 +18,7 @@ import Loader from "../Common/Loader/Loader";
 
 const Hero = () => {
   const { username } = useUsername();
+  console.log("🦸‍♂️ Hero получает username:", username);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const profileLoading = useSelector(selectProfileLoading);
@@ -25,9 +26,10 @@ const Hero = () => {
 
   useEffect(() => {
     if (username) {
+        console.log("✅ Загружаем посты для:", username);
       dispatch(loadProfile(username));
         dispatch(loadStories(username));
-        dispatch(fetchPosts(username));
+        dispatch(fetchPosts({ username }));
         dispatch(fetchHighlights(username));
         dispatch(fetchReels(username));
     }
