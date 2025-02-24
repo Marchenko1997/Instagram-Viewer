@@ -31,14 +31,13 @@ export const CardWrapper = styled.div`
     padding: 40px 300px;
   }
 
-  /* Уменьшаем паддинги ТОЛЬКО для 2-й, 4-й и 5-й карточки */
+
   &:nth-child(2),
   &:nth-child(4),
   &:nth-child(5) {
     padding: 20px 300px;
   }
 
-  /* Уменьшаем паддинги ТОЛЬКО для 1-й и 3-й карточки */
   &:nth-child(1),
   &:nth-child(3) {
     padding: 20px 300px;
@@ -53,6 +52,13 @@ export const TextContainer = styled.div`
   gap: 10px;
   justify-content: center;
   max-width: 400px;
+
+  &:nth-child(2),
+  &:nth-child(4) {
+    margin-left: 40px;
+  }
+
+
 `;
 
 export const CardTitle = styled.h3`
