@@ -4,20 +4,16 @@ import GuideCard from "../GuideCard/GuideCard";
 import { ListWrapper, ListTitle } from "./GuideList.styled";
 
 const GuideList = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isSectionVisible, setIsSectionVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // ✅ Обсервер видимости секции
+  // ✅ Отслеживаем вход и выход из секции
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true); // 🔄 Включаем анимацию при входе
-        } else {
-          setIsVisible(false); // ❌ Отключаем при выходе
-        }
+        setIsSectionVisible(entry.isIntersecting); // 🔄 Меняем состояние при входе/выходе
       },
-      { threshold: 0.3 } // 30% секции должно быть видно для триггера
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -39,7 +35,8 @@ const GuideList = () => {
           key={feature.id}
           {...feature}
           reverse={index % 2 !== 0}
-          isVisible={isVisible} // ✅ Передаем видимость в `GuideCard`
+          isSectionVisible={isSectionVisible} // ✅ Передаем состояние секции
+          index={index}
         />
       ))}
     </ListWrapper>
