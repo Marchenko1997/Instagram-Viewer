@@ -37,7 +37,7 @@ const Hero = () => {
 
  
   return (
-    <div>
+    <div id="search">
       <InputHero />
       {profileLoading && <Loader />}
       <Profile profileData={user} />

@@ -26,8 +26,15 @@ export const PageButton = styled.button`
     fill: var(--color-secondary-dark, #fff);
     width: 32px;
     height: 32px;
+    transition: transform 0.2s ease-in-out; /* 🔥 Добавляем плавное увеличение */
+
+    &:hover,
+    &:focus {
+      transform: scale(1.3); /* 🔍 Увеличение стрелки на 20% */
+    }
   }
 `;
+
 
 // Отображение номера страницы
 export const PageNumber = styled.span`

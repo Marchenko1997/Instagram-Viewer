@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled(motion.div)`
   display: grid;
   grid-template-areas:
     "image"
@@ -31,7 +32,6 @@ export const CardWrapper = styled.div`
     padding: 40px 300px;
   }
 
-
   &:nth-child(2),
   &:nth-child(4),
   &:nth-child(5) {
@@ -57,8 +57,6 @@ export const TextContainer = styled.div`
   &:nth-child(4) {
     margin-left: 40px;
   }
-
-
 `;
 
 export const CardTitle = styled.h3`
