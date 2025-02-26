@@ -75,18 +75,31 @@ export const NavigationButton = styled.button`
   cursor: pointer;
   transform: translateY(-50%);
   display: flex;
-  background:#fff; 
-  border-radius: 50%; 
+  background: #fff;
+  border-radius: 50%;
   align-items: center;
   justify-content: center;
 
-  &.prev {
-    left: -50px;
-  }
+  ${({ $isLoading }) =>
+    $isLoading
+      ? `
+        &.prev {
+          left: -325px;
+        }
 
-  &.next {
-    right: -50px;
-  }
+        &.next {
+          right: -325px;
+        }
+      `
+      : `
+        &.prev {
+          left: -50px;
+        }
+
+        &.next {
+          right: -50px;
+        }
+      `}
 
   svg {
     fill: var(--main-text);

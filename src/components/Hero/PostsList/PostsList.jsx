@@ -26,10 +26,10 @@ const PostsList = () => {
   const [paginationToken, setPaginationToken] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // ✅ Очищаем посты перед загрузкой нового профиля
+ 
   useEffect(() => {
     if (username) {
-      dispatch(clearPosts()); // Очищаем предыдущие посты
+      dispatch(clearPosts()); 
       console.log("📤 Загружаем посты для:", username);
       dispatch(fetchPosts({ username }))
         .unwrap()
@@ -39,21 +39,20 @@ const PostsList = () => {
     }
   }, [dispatch, username]);
 
-  // ✅ Логируем ошибки загрузки
+ 
   useEffect(() => {
     if (error) {
-      toast.error(`❌ Ошибка загрузки постов: ${error}`);
+      toast.error(`❌ Error loading posts: ${error}`);
     }
   }, [error]);
 
-  // ✅ Показываем уведомление, если постов нет
   useEffect(() => {
     if (!posts || posts.length === 0) {
-      toast.info("ℹ️ Нет доступных постов.");
+      toast.info("No posts available.");
     }
   }, [posts]);
 
-  // ✅ Разворачиваем карусельные посты (если это альбом)
+
   const flattenedPosts = posts.flatMap((post) => {
     if (post?.media_type === 8 && post?.carousel_media?.length) {
       return post.carousel_media.map((media, index) => ({
@@ -65,7 +64,7 @@ const PostsList = () => {
     return post;
   });
 
-  // ✅ Фильтруем только посты с фото/видео
+  
   const validPosts = flattenedPosts.filter((post) => {
     const mediaUrl =
       post.media_type === 2

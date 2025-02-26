@@ -8,6 +8,7 @@ import {
 } from "./Modal.styled";
 import sprite from "../../../../public/images/sprite.svg";
 import { disableScroll, enableScroll } from "../../../utils/scrollLock";
+import LoaderPostCard from "../LoaderPostCard/LoaderPostCard";
 
 const Modal = ({
   mediaItems = [],
@@ -16,6 +17,7 @@ const Modal = ({
   loadButtonTop,
 }) => {
   const [index, setIndex] = useState(currentIndex);
+  const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
     disableScroll();
@@ -25,10 +27,12 @@ const Modal = ({
         onClose();
       } else if (event.key === "ArrowRight") {
         setIndex((prevIndex) => (prevIndex + 1) % mediaItems.length);
+        setIsLoading(true); // ✅ Показываем лоадер при смене медиа
       } else if (event.key === "ArrowLeft") {
         setIndex(
           (prevIndex) => (prevIndex - 1 + mediaItems.length) % mediaItems.length
         );
+        setIsLoading(true); // ✅ Показываем лоадер при смене медиа
       }
     };
 
@@ -38,11 +42,12 @@ const Modal = ({
       document.removeEventListener("keydown", handleKeyDown);
       enableScroll();
     };
-  }, [onClose, mediaItems.length, index]);
+  }, [onClose, mediaItems.length]);
 
   const handleNext = () => {
     if (mediaItems.length > 1) {
       setIndex((prevIndex) => (prevIndex + 1) % mediaItems.length);
+      setIsLoading(true); // ✅ Показываем лоадер при смене медиа
     }
   };
 
@@ -51,6 +56,7 @@ const Modal = ({
       setIndex(
         (prevIndex) => (prevIndex - 1 + mediaItems.length) % mediaItems.length
       );
+      setIsLoading(true); // ✅ Показываем лоадер при смене медиа
     }
   };
 
@@ -80,26 +86,47 @@ const Modal = ({
     <ModalOverlay onClick={onClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
         <MediaContainer>
+          {isLoading && <LoaderPostCard />}{" "}
           {mediaItem.type === "video" ? (
-            <video key={mediaItem.url} src={mediaItem.url} controls autoPlay />
+            <video
+              key={mediaItem.url}
+              src={mediaItem.url}
+              controls
+              autoPlay
+              style={{ display: isLoading ? "none" : "block" }}
+              onLoadedData={() => {
+                setIsLoading(false);
+              }}
+            />
           ) : (
-            <img key={mediaItem.url} src={mediaItem.url} alt="Media content" />
+            <img
+              key={mediaItem.url}
+              src={mediaItem.url}
+              alt="Media content"
+              style={{ display: isLoading ? "none" : "block" }}
+              onLoad={() => {
+                setIsLoading(false);
+              }}
+            />
           )}
-          <LoadButton
-            aria-label="Download avatar"
-            onClick={handleDownload}
-            top={loadButtonTop}
-          >
-            <svg width={24} height={24}>
-              <use xlinkHref={`${sprite}#icon-download`} />
-            </svg>
-          </LoadButton>
+          {!isLoading && (
+            <LoadButton
+              aria-label="Download media"
+              onClick={handleDownload}
+              top={loadButtonTop}
+            >
+              <svg width={24} height={24}>
+                <use xlinkHref={`${sprite}#icon-download`} />
+              </svg>
+            </LoadButton>
+          )}
         </MediaContainer>
 
         <NavigationButton
           className="prev"
           onClick={handlePrev}
           disabled={index === 0}
+          $isLoading={isLoading}
         >
           <svg width={30} height={30}>
             <use xlinkHref={`${sprite}#icon-chevron-left`} />
@@ -110,6 +137,7 @@ const Modal = ({
           className="next"
           onClick={handleNext}
           disabled={index === mediaItems.length - 1}
+          $isLoading={isLoading}
         >
           <svg width={30} height={30}>
             <use xlinkHref={`${sprite}#icon-chevron-right`} />
