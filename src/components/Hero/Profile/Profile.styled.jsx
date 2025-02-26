@@ -10,7 +10,7 @@ export const ProfileContainer = styled.div`
     "avatar biography";
   grid-template-columns: 40% 1fr;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 140px;
   max-width: 640px;
   font-family: Roboto, sans-serif;
 `;

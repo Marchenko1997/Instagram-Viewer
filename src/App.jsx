@@ -12,6 +12,7 @@ import DownLoadPage from "./components/DownLoadPage/DownLoadPage";
 import MainValues from "./components/MainValues/MainValues";
 import GuideSection from "./components/GuideSection/GuideSection";
 import Questions from "./components/Questions/Questions"
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Questions />
         </Container>
       </main>
+      <Footer />
     </UsernameProvider>
   );
 }

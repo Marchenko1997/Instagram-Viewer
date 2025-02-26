@@ -7,8 +7,13 @@ import {
 import { useEffect } from "react";
 import sprite from "../../../../../public/images/sprite.svg";
 import { enableScroll, disableScroll } from "../../../../utils/scrollLock";
+import LoaderPostCard from "../../../Common/LoaderPostCard/LoaderPostCard";
+import { useState } from "react";
 
 const ModalAvatar = ({ avatarUrl, onClose }) => {
+  const [isLoading, setIsLoading] = useState(true)
+  
+
   useEffect(() => {
     disableScroll();
     const handleKeyDown = (event) => {
@@ -39,12 +44,19 @@ const ModalAvatar = ({ avatarUrl, onClose }) => {
   return (
     <ModalOverlay onClick={onClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
-        <ModalAvatarImage src={avatarUrl} alt="Profile Avatar" />
-        <LoadButton aria-label="Download avatar" onClick={handleDownload}>
-          <svg width={24} height={24}>
-            <use xlinkHref={`${sprite}#icon-download`} />
-          </svg>
-        </LoadButton>
+        {isLoading && <LoaderPostCard />}
+        <ModalAvatarImage
+          src={avatarUrl}
+          alt="Profile Avatar"
+          onLoad={() => setIsLoading(false)}
+        />
+        {!isLoading && (
+          <LoadButton aria-label="Download avatar" onClick={handleDownload}>
+            <svg width={24} height={24}>
+              <use xlinkHref={`${sprite}#icon-download`} />
+            </svg>
+          </LoadButton>
+        )}
       </ModalContent>
     </ModalOverlay>
   );

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FeaturesWrapper = styled.div`
   text-align: center;
   color: var(--main-text);
-  margin-top: 160px;
+  margin-top: 140px;
   overflow: hidden;
 `;
 
@@ -11,12 +11,12 @@ export const FeaturesTitle = styled.h2`
   font-size: 24px;
   font-weight: 400;
   line-height: 34px;
-  margin: 40px 0;
+  margin-bottom: 40px;
   transform: translateX(100%);
   opacity: 0;
   transition: transform 1.8s cubic-bezier(0.25, 1, 0.3, 1),
     opacity 1.8s cubic-bezier(0.25, 1, 0.3, 1);
-  transition-delay: 0.3s; 
+  transition-delay: 0.3s;
 
   &.visible {
     transform: translateX(0);
@@ -26,7 +26,7 @@ export const FeaturesTitle = styled.h2`
   @media screen and (min-width: 992px) {
     font-size: 38px;
     line-height: 42px;
-    margin: 55px 0 57px;
+    margin-bottom: 60px;
   }
 `;
 
