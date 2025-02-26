@@ -15,6 +15,7 @@ import InputHero from "./InputHero/InputHero";
 import Tabs from "./Tabs/Tabs";
 import { Outlet } from "react-router-dom";
 import Loader from "../Common/Loader/Loader";
+import { PrivateProfileMessage } from "./Hero.styled";
 
 const Hero = () => {
   const { username } = useUsername();
@@ -22,27 +23,34 @@ const Hero = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const profileLoading = useSelector(selectProfileLoading);
-  
 
   useEffect(() => {
     if (username) {
-        console.log("✅ Загружаем посты для:", username);
+      console.log("✅ Загружаем посты для:", username);
       dispatch(loadProfile(username));
-        dispatch(loadStories(username));
-        dispatch(fetchPosts({ username }));
-        dispatch(fetchHighlights(username));
-        dispatch(fetchReels(username));
+      dispatch(loadStories(username));
+      dispatch(fetchPosts({ username }));
+      dispatch(fetchHighlights(username));
+      dispatch(fetchReels(username));
     }
   }, [dispatch, username]);
 
- 
+  const isPrivate = user?.is_private;
+
   return (
     <div id="search">
       <InputHero />
       {profileLoading && <Loader />}
       <Profile profileData={user} />
       {username && <Tabs />}
-      <Outlet />
+      {isPrivate ? (
+        <PrivateProfileMessage>
+          🚫 You entered a link to a private account. Try using a link to a
+          public account.
+        </PrivateProfileMessage>
+      ) : (
+        <Outlet />
+      )}
     </div>
   );
 };
