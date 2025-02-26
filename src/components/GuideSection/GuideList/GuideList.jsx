@@ -7,11 +7,11 @@ const GuideList = () => {
   const [isSectionVisible, setIsSectionVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // ✅ Отслеживаем вход и выход из секции
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsSectionVisible(entry.isIntersecting); // 🔄 Меняем состояние при входе/выходе
+        setIsSectionVisible(entry.isIntersecting); 
       },
       { threshold: 0.3 }
     );
@@ -35,7 +35,7 @@ const GuideList = () => {
           key={feature.id}
           {...feature}
           reverse={index % 2 !== 0}
-          isSectionVisible={isSectionVisible} // ✅ Передаем состояние секции
+          isSectionVisible={isSectionVisible}
           index={index}
         />
       ))}
