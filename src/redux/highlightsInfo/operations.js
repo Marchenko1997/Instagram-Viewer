@@ -21,18 +21,27 @@ export const highlightsApi = createApi({
         params: { highlight_id: highlightId.replace("highlight:", "") },
       }),
       transformResponse: (response) => {
+        console.log("📌 API Response:", response);
+        const additionalData = response.data?.additional_data;
+        if (!additionalData) {
+          console.warn(
+            "⚠️ Warning: additional_data отсутствует в ответе API",
+            response
+          );
+        }
         const items = response.data?.items || [];
         return items.map((item) => {
+             console.log("📌 Item Data:", item);
           const isVideo = item.media_type === 2;
           const isImage = item.media_type === 1;
 
-          const imageUrl =
-            isImage && item.image_versions?.items?.length
-              ? item.image_versions.items.find((img) => img.url)?.url
-              : item.image_versions2?.items?.length
-              ? item.image_versions2.items.find((img) => img.url)?.url
-              : response.data.data.additional_data?.cover_media
-                  ?.cropped_image_version?.url || null;
+       const imageUrl =
+         isImage && item.image_versions?.items?.length
+           ? item.image_versions.items.find((img) => img.url)?.url
+           : item.image_versions2?.items?.length
+           ? item.image_versions2.items.find((img) => img.url)?.url
+           : additionalData?.cover_media?.cropped_image_version?.url ?? null;
+
 
           const videoUrl = isVideo
             ? item.video_versions?.find((v) => v.url)?.url || item.video_url
