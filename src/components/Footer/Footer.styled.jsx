@@ -13,7 +13,7 @@ export const FooterContainer = styled.footer`
   padding: 20px;
   position: relative;
   z-index: 1;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -47,13 +47,12 @@ export const FooterContainer = styled.footer`
     left: -140px;
     bottom: -180px;
   }
+`;
 
- 
-  p {
-    color: #fff;
-    font-size: 18px;
-    text-align: center;
-    margin: 0;
-    z-index: 2;
-  }
+export const ReservedText = styled.p`
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+  margin-top: 65px;
 `;

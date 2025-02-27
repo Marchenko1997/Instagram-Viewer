@@ -1,14 +1,13 @@
-
-import { FooterContainer } from "./Footer.styled";
+import { FooterContainer, ReservedText } from "./Footer.styled";
+import SocialFooter from "./SocialFooter/SocialFooter";
 
 const Footer = () => {
   return (
-      <FooterContainer>
+    <FooterContainer id = "contacts">
       <div className="ellipse11"></div>
       <div className="ellipse22"></div>
-      <p style={{ textAlign: "center", color: "#fff", fontSize: "18px" }}>
-        © 2025. 
-      </p>
+          <SocialFooter />
+          <ReservedText>© 2025 Instagram.com, All rights reserved</ReservedText>
     </FooterContainer>
   );
 };
