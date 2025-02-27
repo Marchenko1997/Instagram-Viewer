@@ -56,7 +56,7 @@ const Modal = ({
       setIndex(
         (prevIndex) => (prevIndex - 1 + mediaItems.length) % mediaItems.length
       );
-      setIsLoading(true); // ✅ Показываем лоадер при смене медиа
+      setIsLoading(true); 
     }
   };
 

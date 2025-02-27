@@ -11,31 +11,33 @@ import ReelsList from "./components/Hero/ReelsList/ReelsList";
 import DownLoadPage from "./components/DownLoadPage/DownLoadPage";
 import MainValues from "./components/MainValues/MainValues";
 import GuideSection from "./components/GuideSection/GuideSection";
-import Questions from "./components/Questions/Questions"
+import Questions from "./components/Questions/Questions";
 import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <UsernameProvider>
-      <Header />
-      <main>
-        <Container>
-          <Routes>
-            <Route path="/" element={<Hero />}>
-              <Route index element={<PostsList />} />
-              <Route path="posts" element={<PostsList />} />
-              <Route path="stories" element={<ListOfStories />} />
-              <Route path="highlights" element={<HighLights />} />
-              <Route path="reels" element={<ReelsList />} />
-            </Route>
-            <Route path="/download" element={<DownLoadPage />} />
-          </Routes>
-          <MainValues />
-          <GuideSection />
-          <Questions />
-        </Container>
-      </main>
-      <Footer />
+      <div id="root">
+        <Header />
+        <main>
+          <Container>
+            <Routes>
+              <Route path="/" element={<Hero />}>
+                <Route index element={<PostsList />} />
+                <Route path="posts" element={<PostsList />} />
+                <Route path="stories" element={<ListOfStories />} />
+                <Route path="highlights" element={<HighLights />} />
+                <Route path="reels" element={<ReelsList />} />
+              </Route>
+              <Route path="/download" element={<DownLoadPage />} />
+            </Routes>
+            <MainValues />
+            <GuideSection />
+            <Questions />
+          </Container>
+        </main>
+        <Footer />
+      </div>
     </UsernameProvider>
   );
 }

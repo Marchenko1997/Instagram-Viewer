@@ -17,8 +17,16 @@ const InputHero = () => {
      return;
    }
 
-   setUsername(inputValue); // Обновляем username
- };
+   setUsername(inputValue); 
+  };
+  
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+  }
+}
+
+
   return (
     <InputWrapper>
       <StyledField
@@ -26,6 +34,7 @@ const InputHero = () => {
         placeholder="@username or link"
         value={inputValue}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
       />
       <InputButton onClick={handleSearch} />
     </InputWrapper>

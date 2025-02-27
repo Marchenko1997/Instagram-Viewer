@@ -15,10 +15,10 @@ export const HeaderMain = styled.header`
 
   .ellipse1 {
     background: linear-gradient(
-      229.54deg,
-      rgba(244, 228, 215, 0.4) 15.93%,
-       #f4e4d7  rgba(244, 228, 215, 0.6)
-        71.29% 
+      140.63deg,
+      rgba(244, 228, 215, 0.4) 13.32%,
+      /* Светлый оттенок #f4e4d7 с прозрачностью */ rgba(244, 228, 215, 0.7)
+        69.77% /* Еще более насыщенный оттенок */
     );
     border-radius: 50%;
     height: 285px;
@@ -26,6 +26,7 @@ export const HeaderMain = styled.header`
     position: absolute;
     left: -102px;
     top: 184px;
+    z-index: 1;
   }
 
   .ellipse2 {

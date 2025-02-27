@@ -11,23 +11,30 @@ export const FooterContainer = styled.footer`
   width: 100%;
   height: 250px;
   padding: 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   margin-top: 140px;
 
-  .ellipse1 {
+  /* Фиксированные круги */
+  .ellipse11 {
     background: linear-gradient(
       229.54deg,
       rgba(244, 228, 215, 0.4) 15.93%,
-      #f4e4d7 rgba(244, 228, 215, 0.6) 71.29%
+      rgba(244, 228, 215, 0.6) 71.29%
     );
     border-radius: 50%;
     height: 285px;
     width: 285px;
     position: absolute;
-    right: -102px; /* Инвертируем расположение */
-    bottom: 184px;
+    right: -90px;
+    bottom: 60px;
   }
 
-  .ellipse2 {
+  .ellipse22 {
     background: linear-gradient(
       140.63deg,
       rgba(244, 228, 215, 0.4) 13.32%,
@@ -37,7 +44,16 @@ export const FooterContainer = styled.footer`
     height: 332px;
     width: 332px;
     position: absolute;
-    left: -172px; /* Инвертируем расположение */
-    bottom: -125px;
+    left: -140px;
+    bottom: -180px;
+  }
+
+ 
+  p {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    z-index: 2;
   }
 `;

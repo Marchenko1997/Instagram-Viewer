@@ -1,29 +1,30 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+
 :root {
   --transition-duration: 400ms ease;
 
   /* Основные цвета */
-  --bg-main: #f4e4d7; /* Основной фон */
+  --bg-main: #f4e4d7;
   --bg-main-darker: #fff7f1;
-  --bg-secondary: #f8d9b8; /* Второстепенный фон */
-  --color-accent: #efac59; /* Основной акцентный цвет */
-  --color-accent-hover: rgba(136, 85, 220, 0.969); /* Акцентный цвет для активных элементов */
+  --bg-secondary: #f8d9b8;
+  --color-accent: #efac59;
+  --color-accent-hover: rgba(136, 85, 220, 0.969);
 
   /* Темные цвета */
-  --color-primary-dark: #2713a1; /* Основной темный цвет для текста */
-  --color-secondary-dark: #a11392; /* Вторичный темный цвет */
-  --main-text: #333; /* Основной цвет текста */
-  --secondary-text: #555; /* Второстепенный цвет текста */
-  --tertiary-text: #666; /* Третичный цвет текста */
+  --color-primary-dark: #2713a1;
+  --color-secondary-dark: #a11392;
+  --main-text: #333;
+  --secondary-text: #555;
+  --tertiary-text: #666;
 
   /* Вспомогательные цвета */
-  --color-shadow: rgba(23, 19, 161, 0.25); /* Полупрозрачная тень */
-  --color-placeholder: #7b7b7b; /* Цвет текста-заполнителя */
-  --color-border: #ccc; /* Цвет рамки */
-  --color-error: #d24562; /* Цвет для ошибок */
-  --color-white: #fff; /* Чисто белый цвет */
-  --color-overlay: rgba(255, 255, 255, 0.4); /* Прозрачный белый для оверлеев */
+  --color-shadow: rgba(23, 19, 161, 0.25);
+  --color-placeholder: #7b7b7b;
+  --color-border: #ccc;
+  --color-error: #d24562;
+  --color-white: #fff;
+  --color-overlay: rgba(255, 255, 255, 0.4);
 }
 
 * {
@@ -31,14 +32,39 @@
   scroll-behavior: smooth;
 }
 
-body {
+html, body {
   font-family: "Fredoka", sans-serif;
   background: var(--bg-main);
   font-size: 16px;
   font-weight: 400;
   color: var(--color-primary-dark);
   overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+footer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
 
 h1,
 h2,

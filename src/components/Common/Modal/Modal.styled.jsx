@@ -32,16 +32,18 @@ export const MediaContainer = styled.div`
 
   img,
   video {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100% !important;
+    max-width: 547px !important;
+    max-height: 683px;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: contain;
   }
 `;
 
 export const LoadButton = styled.button`
   position: absolute;
-  top: ${({ top }) => top || "-55px"};
+  /* top: ${({ top }) => top || "-55px"}; */
+  top: -55px;
   right: 15px;
   width: 40px;
   height: 40px;
