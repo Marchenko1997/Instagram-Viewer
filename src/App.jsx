@@ -13,6 +13,7 @@ import MainValues from "./components/MainValues/MainValues";
 import GuideSection from "./components/GuideSection/GuideSection";
 import Questions from "./components/Questions/Questions";
 import Footer from "./components/Footer/Footer";
+import FollowCursor from "./components/Common/FollowCursor/FollowCursor";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           </Container>
         </main>
         <Footer />
+        <FollowCursor />
       </div>
     </UsernameProvider>
   );
