@@ -5,7 +5,22 @@ export const SocialWrap = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-left: 780px;
+  margin-left: 1080px;
+  margin-top: auto;
+`;
+
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const IconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const SocialLink = styled.a`
@@ -18,7 +33,7 @@ export const SocialLink = styled.a`
   justify-content: center;
 
   &:hover {
-    color: var(--color-accent-hover);
+    color: var(--bg-secondary);
     transform: scale(1.1);
   }
 `;
@@ -36,6 +51,6 @@ export const SvgIcon = styled.svg`
   transition: fill 0.3s ease;
 
   ${SocialLink}:hover & {
-    fill: var(--color-accent-hover);
+    fill: #df9c49;
   }
 `;

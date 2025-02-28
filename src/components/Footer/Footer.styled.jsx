@@ -13,13 +13,11 @@ export const FooterContainer = styled.footer`
   padding: 20px;
   position: relative;
   z-index: 1;
-  /* display: flex; */
+  display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
   margin-top: 140px;
 
-  /* Фиксированные круги */
   .ellipse11 {
     background: linear-gradient(
       229.54deg,
@@ -49,10 +47,18 @@ export const FooterContainer = styled.footer`
   }
 `;
 
+export const FooterContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`;
+
 export const ReservedText = styled.p`
   color: #fff;
   font-size: 18px;
   text-align: center;
   margin: 0;
-  margin-top: 65px;
+  margin-top: auto; 
 `;
