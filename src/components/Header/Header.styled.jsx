@@ -9,23 +9,22 @@ export const HeaderMain = styled.header`
   );
   border-radius: 0 0 40px 40px;
   width: 100%;
-  height: 400px;
+  height: 280px; /* Меньше высота для мобильных */
   position: relative;
-  padding: 20px;
+  padding: 16px;
 
   .ellipse1 {
     background: linear-gradient(
       140.63deg,
       rgba(244, 228, 215, 0.4) 13.32%,
-      /* Светлый оттенок #f4e4d7 с прозрачностью */ rgba(244, 228, 215, 0.7)
-        69.77% /* Еще более насыщенный оттенок */
+      rgba(244, 228, 215, 0.7) 69.77%
     );
     border-radius: 50%;
-    height: 285px;
-    width: 285px;
+    height: 200px;
+    width: 200px;
     position: absolute;
-    left: -102px;
-    top: 184px;
+    left: -50px;
+    top: 120px;
     z-index: 1;
   }
 
@@ -33,14 +32,50 @@ export const HeaderMain = styled.header`
     background: linear-gradient(
       140.63deg,
       rgba(244, 228, 215, 0.4) 13.32%,
-      /* Светлый оттенок #f4e4d7 с прозрачностью */ rgba(244, 228, 215, 0.7)
-        69.77% /* Еще более насыщенный оттенок */
+      rgba(244, 228, 215, 0.7) 69.77%
     );
     border-radius: 50%;
-    height: 332px;
-    width: 332px;
+    height: 240px;
+    width: 240px;
     position: absolute;
-    right: -172px;
-    top: -125px;
+    right: -100px;
+    top: -80px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 350px;
+
+    .ellipse1 {
+      height: 250px;
+      width: 250px;
+      left: -80px;
+      top: 150px;
+    }
+
+    .ellipse2 {
+      height: 280px;
+      width: 280px;
+      right: -120px;
+      top: -100px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 400px;
+    padding: 20px;
+
+    .ellipse1 {
+      height: 285px;
+      width: 285px;
+      left: -102px;
+      top: 184px;
+    }
+
+    .ellipse2 {
+      height: 332px;
+      width: 332px;
+      right: -172px;
+      top: -125px;
+    }
   }
 `;

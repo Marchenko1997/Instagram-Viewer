@@ -8,11 +8,11 @@ const Navigation = () => {
       {links.map((link) => (
         <Link
           activeClass="active"
-          to={link.url.slice(1)} // Видаляємо "#" з посилання
+          to={link.url.slice(1)}
           spy={true}
           smooth={true}
-          offset={-70} // Налаштуйте відступ, якщо потрібно
-          duration={500} // Швидкість прокрутки
+          offset={-70}
+          duration={500} 
           key={link.id}
         >
           {link.name}
