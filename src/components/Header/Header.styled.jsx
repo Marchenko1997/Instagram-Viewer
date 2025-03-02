@@ -79,3 +79,10 @@ export const HeaderMain = styled.header`
     }
   }
 `;
+
+export const BurgerWrapper = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+`;
