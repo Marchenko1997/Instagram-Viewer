@@ -1,19 +1,18 @@
 import styled from "styled-components";
 
 export const NavList = styled.nav`
-  display: none; 
+  display: none;
 
   @media screen and (min-width: 768px) {
     display: flex;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
     row-gap: 8px;
+    justify-content: center;
   }
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
     column-gap: 82px;
     padding: 20px;
   }

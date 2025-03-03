@@ -65,8 +65,10 @@ export const InputWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  margin-top: 40px;
 
   @media screen and (min-width: 768px) {
+    margin-top: 60px;
     flex-direction: row;
     gap: 16px;
   }

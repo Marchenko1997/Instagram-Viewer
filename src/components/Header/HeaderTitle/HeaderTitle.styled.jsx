@@ -6,11 +6,15 @@ export const MainTitleWrapper = styled.div`
   flex-direction: column;
   text-align: center;
   gap: 16px;
-  margin-top: 20px;
+  margin-top: 40px;
+  max-width: 600px;
+
 
   @media screen and (min-width: 768px) {
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-left: 70px;
     gap: 30px;
+    max-width: 800px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -19,6 +23,7 @@ export const MainTitleWrapper = styled.div`
     flex-direction: column;
     gap: 50px;
     text-align: left;
+    max-width: 100%;
   }
 `;
 

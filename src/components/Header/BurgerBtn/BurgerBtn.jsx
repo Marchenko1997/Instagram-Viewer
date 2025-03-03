@@ -1,5 +1,5 @@
 import { Button } from './BurgerBtn.styled'
-import sprite from "../../../../public/images/sprite.svg";
+import sprite from "/public/images/sprite.svg";
 
 const BurgerBtn = ({fn}) => {
   return (

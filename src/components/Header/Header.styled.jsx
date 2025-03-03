@@ -9,9 +9,10 @@ export const HeaderMain = styled.header`
   );
   border-radius: 0 0 40px 40px;
   width: 100%;
-  height: 280px; /* Меньше высота для мобильных */
+  height: 280px; 
   position: relative;
   padding: 16px;
+  display: flex;
 
   .ellipse1 {
     background: linear-gradient(
@@ -20,11 +21,11 @@ export const HeaderMain = styled.header`
       rgba(244, 228, 215, 0.7) 69.77%
     );
     border-radius: 50%;
-    height: 200px;
-    width: 200px;
+    height: 140px;
+    width: 140px;
     position: absolute;
     left: -50px;
-    top: 120px;
+    top: 180px;
     z-index: 1;
   }
 
@@ -35,15 +36,16 @@ export const HeaderMain = styled.header`
       rgba(244, 228, 215, 0.7) 69.77%
     );
     border-radius: 50%;
-    height: 240px;
-    width: 240px;
+    height: 140px;
+    width: 140px;
     position: absolute;
-    right: -100px;
-    top: -80px;
+    right: -60px;
+    top: -70px;
   }
 
   @media screen and (min-width: 768px) {
     height: 350px;
+    flex-direction: column;
 
     .ellipse1 {
       height: 250px;
@@ -63,6 +65,8 @@ export const HeaderMain = styled.header`
   @media screen and (min-width: 1280px) {
     height: 400px;
     padding: 20px;
+    display: block;
+    flex-direction: row;
 
     .ellipse1 {
       height: 285px;
@@ -84,5 +88,5 @@ export const BurgerWrapper = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 10;
+  z-index: 20;
 `;

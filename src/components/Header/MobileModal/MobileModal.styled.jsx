@@ -17,8 +17,9 @@ export const ModalContent = styled.div`
   background: var(--bg-main);
   padding: 20px;
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
   max-width: 400px;
+  height: 600px;
   position: relative;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 `;
@@ -32,7 +33,7 @@ export const CloseBtn = styled.button`
   cursor: pointer;
 
   svg {
-    fill: var(--bg-secondary);
+    stroke: var(--main-text);
     width: 20px;
     height: 20px;
   }

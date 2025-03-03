@@ -10,11 +10,17 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 16px;
-  right: 16px;
-  z-index: 10;
+  top: -6px;
+  right: -6px;
+  z-index: 20;
+
+  svg {
+    stroke: var(--bg-main);
+    width: 20px;
+    height: 20px;
+  }
 
   @media screen and (min-width: 1280px) {
-    display: none; /* Скрываем бургер на десктопе */
+    display: none;
   }
 `;
