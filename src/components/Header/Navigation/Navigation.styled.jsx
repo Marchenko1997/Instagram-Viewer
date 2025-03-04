@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavList = styled.nav`
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
@@ -9,11 +9,17 @@ export const NavList = styled.nav`
   a {
     transition: transform var(--transition-duration),
       color var(--transition-duration);
+
     &:hover,
     &:focus {
       color: var(--bg-secondary);
       transform: scale(1.1);
     }
+  }
+
+  &.nav-mobile {
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (min-width: 768px) {
@@ -23,11 +29,13 @@ export const NavList = styled.nav`
     justify-content: center;
     flex-direction: row;
     padding: 0;
+    display: flex;
   }
 
   @media screen and (min-width: 1280px) {
     column-gap: 82px;
     padding: 20px;
+    display: flex;
   }
 
   a {

@@ -18,7 +18,7 @@ export const SearchButton = styled.button`
   @media screen and (min-width: 375px) {
     width: 110px;
     height: 40px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   @media screen and (min-width: 768px) {

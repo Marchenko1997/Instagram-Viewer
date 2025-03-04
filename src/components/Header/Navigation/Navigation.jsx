@@ -2,9 +2,9 @@ import { Link } from "react-scroll";
 import { links } from "../../../data/navigation";
 import { NavList } from "./Navigation.styled";
 
-const Navigation = ({closeMenu}) => {
+const Navigation = ({closeMenu, className}) => {
   return (
-    <NavList>
+    <NavList className={className}>
       {links.map((link) => (
         <Link
           activeClass="active"

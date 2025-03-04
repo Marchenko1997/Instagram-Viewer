@@ -20,7 +20,7 @@ export const Button = styled.button`
     height: 20px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 `;
