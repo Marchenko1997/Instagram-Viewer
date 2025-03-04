@@ -15,43 +15,76 @@ export const ModalContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 600px;
-  max-height: 600px;
+  max-width: 320px;
+  max-height: 400px;
   border-radius: 12px;
-  padding: 20px;
+  padding: 15px;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    max-width: 450px;
+    max-height: 500px;
+    padding: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 600px;
+    max-height: 600px;
+    padding: 20px;
+  }
 `;
 
 export const MediaContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 550px;
-  max-height: 550px;
+  max-width: 280px;
+  max-height: 350px;
   position: relative;
 
   img,
   video {
     width: 100% !important;
-    max-width: 547px !important;
-    max-height: 683px;
+    max-width: 270px !important;
+    max-height: 350px;
     border-radius: 10px;
     object-fit: contain;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 400px;
+    max-height: 500px;
+
+    img,
+    video {
+      max-width: 400px !important;
+      max-height: 500px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 550px;
+    max-height: 550px;
+
+    img,
+    video {
+      max-width: 547px !important;
+      max-height: 683px;
+    }
   }
 `;
 
 export const LoadButton = styled.button`
   position: absolute;
-  /* top: ${({ top }) => top || "-55px"}; */
-  top: -55px;
-  right: 15px;
-  width: 40px;
-  height: 40px;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(136, 85, 220, 0.969);
-  border: 3px solid rgba(136, 85, 220, 0.969);
+  border: 2px solid rgba(136, 85, 220, 0.969);
   border-radius: 50%;
   cursor: pointer;
   z-index: 2;
@@ -65,13 +98,27 @@ export const LoadButton = styled.button`
     stroke: #fff;
     fill: rgba(136, 85, 220, 0.969);
   }
+
+  @media screen and (min-width: 768px) {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: -55px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 export const NavigationButton = styled.button`
   position: absolute;
   top: 50%;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -86,20 +133,20 @@ export const NavigationButton = styled.button`
     $isLoading
       ? `
         &.prev {
-          left: -325px;
+          left: -200px;
         }
 
         &.next {
-          right: -325px;
+          right: -200px;
         }
       `
       : `
         &.prev {
-          left: -50px;
+          left: -30px;
         }
 
         &.next {
-          right: -50px;
+          right: -30px;
         }
       `}
 
@@ -116,7 +163,56 @@ export const NavigationButton = styled.button`
     opacity: 0.4;
     cursor: not-allowed;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+
+    ${({ $isLoading }) =>
+      $isLoading
+        ? `
+          &.prev {
+            left: -250px;
+          }
+
+          &.next {
+            right: -250px;
+          }
+        `
+        : `
+          &.prev {
+            left: -40px;
+          }
+
+          &.next {
+            right: -40px;
+          }
+        `}
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 30px;
+    height: 30px;
+
+    ${({ $isLoading }) =>
+      $isLoading
+        ? `
+          &.prev {
+            left: -325px;
+          }
+
+          &.next {
+            right: -325px;
+          }
+        `
+        : `
+          &.prev {
+            left: -50px;
+          }
+
+          &.next {
+            right: -50px;
+          }
+        `}
+  }
 `;
-
-
-
