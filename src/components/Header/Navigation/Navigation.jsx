@@ -2,7 +2,7 @@ import { Link } from "react-scroll";
 import { links } from "../../../data/navigation";
 import { NavList } from "./Navigation.styled";
 
-const Navigation = () => {
+const Navigation = ({closeMenu}) => {
   return (
     <NavList>
       {links.map((link) => (
@@ -14,6 +14,7 @@ const Navigation = () => {
           offset={-70}
           duration={500} 
           key={link.id}
+          onClick={closeMenu}
         >
           {link.name}
         </Link>

@@ -4,7 +4,7 @@ import Navigation from "../Navigation/Navigation";
 const MobileMenu = ({ fn }) => {
   return (
     <MobileModal fn={fn}>
-      <Navigation />
+      <Navigation closeMenu={() => fn(false)} /> 
     </MobileModal>
   );
 };

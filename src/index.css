@@ -32,7 +32,7 @@
   scroll-behavior: smooth;
 }
 
-html, body {
+ body {
   font-family: "Fredoka", sans-serif;
   background: var(--bg-main);
   font-size: 16px;

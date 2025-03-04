@@ -5,7 +5,7 @@ import { FAQSection } from "./Questions.styled";
 
 const FAQ = () => {
   return (
-    <FAQSection>
+    <FAQSection id="faq">
       <TitleFAQ />
       <ListQuestions />
     </FAQSection>
