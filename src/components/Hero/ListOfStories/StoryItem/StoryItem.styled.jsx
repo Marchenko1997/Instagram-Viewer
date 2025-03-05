@@ -9,33 +9,55 @@ export const StoryCard = styled.div`
   justify-content: center;
   transition: transform 0.3s, box-shadow 0.3s;
   background-color: var(--bg-main-darker);
-  padding: 0, 20px;
+  padding: 0 ;
   position: relative;
 
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   }
+
+
 `;
 
 export const StoryImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+`;
+
+export const StoryVideo = styled.video`
+  width: 100%;
+  height: auto;
   border-radius: 10px 10px 0 0;
 `;
 
 export const TagsContainer = styled.div`
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 8px;
+  top: 8px;
   display: inline-flex;
   align-items: center;
   background: hsla(0, 0%, 9%, 0.6);
   border-radius: 44px;
-  padding: 4px 10px;
-  gap: 8px;
+  padding: 4px 8px;
+  gap: 6px;
   justify-content: center;
   list-style: none;
+
+  @media screen and (min-width: 768px) {
+    right: 10px;
+    top: 10px;
+    padding: 4px 10px;
+    gap: 8px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 10px;
+    top: 10px;
+    padding: 4px 10px;
+    gap: 8px; /* Без изменений */
+  }
 `;
 
 export const TagsButton = styled.button`
@@ -52,30 +74,36 @@ export const TagsButton = styled.button`
   }
 `;
 
-export const StoryVideo = styled.video`
-  width: 100%;
-  height: 100%;
-  border-radius: 10px 10px 0 0;
-`;
-
 export const LoadContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  font-size: 14px;
+  padding: 15px;
+  font-size: 12px;
   color: var(--main-text);
 
   span {
     margin-left: auto;
     display: flex;
-    gap: 6px;
+    gap: 5px;
   }
 
   svg {
     stroke: var(--main-text);
     fill: transparent;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 20px;
+    font-size: 14px;
+    gap: 10px;
   }
 `;

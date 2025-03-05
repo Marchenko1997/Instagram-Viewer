@@ -20,8 +20,8 @@ const proxyUrl = "http://localhost:3001/proxy";
 const StoryItem = ({ title, image, video, takenAt }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const stories = useSelector(selectStories); // Получаем истории из Redux
-  const mediaItems = getStoryMediaItems(stories); // Генерируем массив mediaItems
+  const stories = useSelector(selectStories); 
+  const mediaItems = getStoryMediaItems(stories); 
 
   const isVideo = video && video.trim();
 
