@@ -18,7 +18,6 @@ const Pagination = ({
 }) => {
   const dispatch = useDispatch();
 
-  // ✅ Функция загрузки следующей страницы
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       onPageChange(currentPage + 1);
@@ -36,30 +35,23 @@ const Pagination = ({
     }
   };
 
-  // ✅ Функция загрузки предыдущей страницы
   const handlePrevPage = () => {
     if (currentPage > 1) {
       onPageChange(currentPage - 1);
     }
   };
 
-  // ✅ Генерация номеров страниц (1, 2, 3, ..., totalPages)
   const generatePageNumbers = () => {
     const pages = [];
 
-    // Первая страница
     pages.push(1);
-
-    // Вторая и третья страницы
     if (totalPages > 1) pages.push(2);
     if (totalPages > 2) pages.push(3);
 
-    // `...` если есть разрыв между 3 и totalPages - 1
     if (totalPages > 4 && currentPage < totalPages - 2) {
       pages.push("...");
     }
 
-    // Последняя страница
     if (totalPages > 3) {
       pages.push(totalPages);
     }
@@ -69,25 +61,22 @@ const Pagination = ({
 
   return (
     <PaginationContainer>
-      {/* 🔹 Кнопка "Назад" */}
       <PageButton disabled={currentPage === 1} onClick={handlePrevPage}>
         <svg width="52" height="52">
           <use xlinkHref={`${sprite}#icon-chevron-left`} />
         </svg>
       </PageButton>
 
-      {/* 🔹 Генерируем кнопки пагинации */}
       {generatePageNumbers().map((page, index) => (
         <PageNumber
           key={index}
-          active={currentPage === page}
+          className={currentPage === page ? "active" : ""}
           onClick={() => typeof page === "number" && onPageChange(page)}
         >
           {page}
         </PageNumber>
       ))}
 
-      {/* 🔹 Кнопка "Вперед" */}
       <PageButton
         disabled={currentPage === totalPages && !paginationToken}
         onClick={handleNextPage}

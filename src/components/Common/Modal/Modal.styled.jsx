@@ -44,8 +44,7 @@ export const MediaContainer = styled.div`
 
   img,
   video {
-    width: 100% !important;
-    max-width: 270px !important;
+    width: 100% ;
     max-height: 350px;
     border-radius: 10px;
     object-fit: contain;
@@ -57,7 +56,7 @@ export const MediaContainer = styled.div`
 
     img,
     video {
-      max-width: 400px !important;
+      max-width: 400px ;
       max-height: 500px;
     }
   }
