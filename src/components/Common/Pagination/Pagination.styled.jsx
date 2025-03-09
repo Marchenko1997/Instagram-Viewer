@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// Основной контейнер для пагинации
+
 export const PaginationContainer = styled.div`
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@ export const PaginationContainer = styled.div`
   margin-top: 40px;
 `;
 
-// Кнопки "назад" и "вперед"
+
 export const PageButton = styled.button`
   background: none;
   border: none;
