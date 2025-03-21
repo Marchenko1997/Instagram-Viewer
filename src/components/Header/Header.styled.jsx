@@ -24,7 +24,7 @@ export const HeaderMain = styled.header`
     height: 140px;
     width: 140px;
     position: absolute;
-    left: -50px;
+    left: -70px;
     top: 180px;
     z-index: 1;
   }

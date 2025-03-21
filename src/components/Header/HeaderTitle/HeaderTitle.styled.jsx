@@ -28,7 +28,7 @@ export const MainTitleWrapper = styled.div`
 `;
 
 export const MainTitle = styled.h1`
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 400;
   line-height: 1.2;
   text-transform: uppercase;
