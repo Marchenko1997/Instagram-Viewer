@@ -12,7 +12,7 @@ import sprite from "../../../../../public/images/sprite.svg";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
 
-const proxyUrl = "http://localhost:3001/proxy";
+const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
 
 const HighlightCard = ({ highlight }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

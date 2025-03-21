@@ -1,4 +1,4 @@
-const proxyUrl = "http://localhost:3001/proxy";
+const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
 
 export const getReelsMediaItems = (reels) => {
   if (!reels || !Array.isArray(reels)) return [];

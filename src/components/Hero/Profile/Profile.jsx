@@ -15,7 +15,7 @@ import sprite from "../../../../public/images/sprite.svg";
 import ModalAvatar from "./ModalAvatar/ModalAvatar";
 import { useState } from "react";
 
-const proxyUrl = "http://localhost:3001/proxy";
+const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
 
 const Profile = ({ profileData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

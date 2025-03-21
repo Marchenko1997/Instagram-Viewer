@@ -1,4 +1,4 @@
-const proxyUrl = "http://localhost:3001/proxy";
+const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
 
 export const getHighlightMediaItems = (items) => {
   console.log("🟢 Items Input:", items);
