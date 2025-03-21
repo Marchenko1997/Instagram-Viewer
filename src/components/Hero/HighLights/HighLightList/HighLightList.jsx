@@ -4,12 +4,13 @@ import HighLightCircle from "../HighLightCircle/HighLightCircle";
 import { SliderContainer } from "./HighLightList.styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import {PrivateProfileMessage} from "../../Hero.styled"
 
 const HighLightList = ({ onHighlightClick }) => {
   const highlights = useSelector(selectHighlights);
 
   if (!highlights || highlights.length === 0) {
-    return <p>No highlights available</p>;
+    return <PrivateProfileMessage>No highlights available</PrivateProfileMessage>;
   }
 
   return (

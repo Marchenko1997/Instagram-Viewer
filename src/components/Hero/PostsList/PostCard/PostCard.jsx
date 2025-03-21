@@ -17,7 +17,8 @@ import { getMediaItems } from "../../../../utils/getMediaItems";
 import { useSelector } from "react-redux";
 import { selectPosts } from "../../../../redux/posts/selectors";
 
-const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
+const proxyUrl = import.meta.env.VITE_PROXY_URL;
+
 
 const PostCard = ({ post }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

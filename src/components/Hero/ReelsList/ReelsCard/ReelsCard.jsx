@@ -15,7 +15,8 @@ import { useSelector } from "react-redux";
 import { getReelsMediaItems } from "../../../../utils/getReels";
 import { selectReels } from "../../../../redux/reels/selectors";
 
-const proxyUrl = "http://localhost:3001/proxy";
+const proxyUrl = import.meta.env.VITE_PROXY_URL;
+
 
 const ReelsCard = ({ videoUrl, likeCount, createdAt, commentCount }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);

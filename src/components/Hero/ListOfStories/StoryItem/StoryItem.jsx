@@ -15,7 +15,8 @@ import { getStoryMediaItems } from "../../../../utils/getStoryItems";
 import Modal from "../../../Common/Modal/Modal";
 import { useState } from "react";
 
-const proxyUrl = "http://localhost:3001/proxy";
+const proxyUrl = import.meta.env.VITE_PROXY_URL;
+
 
 const StoryItem = ({ title, image, video, takenAt }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

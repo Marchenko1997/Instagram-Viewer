@@ -1,4 +1,4 @@
-const proxyUrl = "https://proxy-server-1-6sj7.onrender.com/proxy";
+const proxyUrl = import.meta.env.VITE_PROXY_URL;
 
 export const getMediaItems = (posts) => {
   if (!posts || !Array.isArray(posts)) return [];

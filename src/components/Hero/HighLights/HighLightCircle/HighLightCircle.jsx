@@ -4,7 +4,8 @@ import {
   HighlightTitle,
 } from "./HighLightCircle.styled";
 
-const proxyUrl = "http://localhost:3001/proxy";
+const proxyUrl = import.meta.env.VITE_PROXY_URL;
+
 
 const HighLightCircle = ({ title, imageSrc }) => {
   if (!imageSrc) {
