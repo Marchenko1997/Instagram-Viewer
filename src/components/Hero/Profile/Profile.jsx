@@ -21,7 +21,7 @@ const Profile = ({ profileData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (!profileData) {
-    return <p>No profile data available</p>;
+    return 
   }
 
   const stats = getStats(profileData);

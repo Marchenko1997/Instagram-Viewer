@@ -1,11 +1,13 @@
 import StoryItem from "./StoryItem/StoryItem";
 import { StoriesContainer } from "./ListOfStories.styled";
+import {PrivateProfileMessage } from "../Hero.styled"
 import { useSelector } from "react-redux";
 import {
   selectStories,
   selectIsLoading as selectStoriesLoading,
 } from "../../../redux/stories/selectors";
 import Loader from "../../Common/Loader/Loader";
+
 
 const ListOfStories = () => {
     const stories = useSelector(selectStories);
@@ -14,7 +16,17 @@ const ListOfStories = () => {
   
       if (storiesLoading) {
         return <Loader />; 
-      }
+  }
+  
+  if (!stories || stories.length === 0) {
+    return (
+      <PrivateProfileMessage>
+        {" "}
+        🚫Looks like there are no stories in the last 24 hours. Please try again
+        later.
+      </PrivateProfileMessage>
+    );
+   }
 
   return (
     <StoriesContainer>

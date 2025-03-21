@@ -16,11 +16,14 @@ import Tabs from "./Tabs/Tabs";
 import { Outlet } from "react-router-dom";
 import Loader from "../Common/Loader/Loader";
 import { PrivateProfileMessage } from "./Hero.styled";
+import { useNavigate } from "react-router-dom";
+
 
 const Hero = () => {
   const { username } = useUsername();
   console.log("🦸‍♂️ Hero получает username:", username);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector(selectUser);
   const profileLoading = useSelector(selectProfileLoading);
 
@@ -34,6 +37,12 @@ const Hero = () => {
       dispatch(fetchReels(username));
     }
   }, [dispatch, username]);
+
+  useEffect(() => {
+    if (!username) { 
+      navigate("/");
+    }
+  }, [username, navigate]);
 
   const isPrivate = user?.is_private;
 
