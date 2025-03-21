@@ -1,23 +1,21 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "https://instagram-scraper-api2.p.rapidapi.com/v1/reels";
-const API_KEY = "7ad1f570e1msha811d9d6db256dap1ec7b0jsn6c9028573957";
-const API_HOST = "instagram-scraper-api2.p.rapidapi.com";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
+const API_HOST = import.meta.env.VITE_API_HOST;
 
 export const fetchReels = createAsyncThunk(
   "reels/fetchReels",
   async (username, { rejectWithValue }) => {
     try {
-      const response = await axios.get(API_URL, {
+      const response = await axios.get(`${API_BASE_URL}/v1/reels`, {
         params: { username_or_id_or_url: username },
         headers: {
           "x-rapidapi-key": API_KEY,
           "x-rapidapi-host": API_HOST,
         },
       });
-
-      console.log("Full API Reels Response:", response.data);
 
       const items = response.data.data?.items;
 

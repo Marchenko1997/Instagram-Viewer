@@ -1,15 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "https://instagram-scraper-api2.p.rapidapi.com/v1/highlights";
-const API_KEY = "7ad1f570e1msha811d9d6db256dap1ec7b0jsn6c9028573957";
-const API_HOST = "instagram-scraper-api2.p.rapidapi.com";
+// Используем только базовый URL из env
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
+const API_HOST = import.meta.env.VITE_API_HOST;
 
 export const fetchHighlights = createAsyncThunk(
   "highlights/fetchHighlights",
   async (username, { rejectWithValue }) => {
     try {
-      const response = await axios.get(API_URL, {
+      const response = await axios.get(`${API_BASE_URL}/v1/highlights`, {
         params: { username_or_id_or_url: username },
         headers: {
           "x-rapidapi-key": API_KEY,
@@ -17,10 +18,7 @@ export const fetchHighlights = createAsyncThunk(
         },
       });
 
-   
-
       const items = response.data.data?.items;
-     
 
       if (!items || !Array.isArray(items) || items.length === 0) {
         throw new Error("API response is missing 'items' or items are empty.");
@@ -30,7 +28,7 @@ export const fetchHighlights = createAsyncThunk(
         id: item.id,
         title: item.title || "Untitled",
         cover_media: item.cover_media?.cropped_image_version?.url || "",
-        media_count: item.media_count || 0, 
+        media_count: item.media_count || 0,
       }));
     } catch (error) {
       console.error("API Error:", error.response?.data || error.message);

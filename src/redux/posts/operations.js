@@ -1,8 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "https://instagram-scraper-api2.p.rapidapi.com/v1/posts";
-const API_KEY = "7ad1f570e1msha811d9d6db256dap1ec7b0jsn6c9028573957";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
+const API_HOST = import.meta.env.VITE_API_HOST;
 
 export const fetchPosts = createAsyncThunk(
   "posts/fetchPosts",
@@ -18,21 +19,13 @@ export const fetchPosts = createAsyncThunk(
         params.pagination_token = paginationToken;
       }
 
-      console.log("📤 Отправка запроса с параметрами:", params);
-
-      const response = await axios.get(API_URL, {
+      const response = await axios.get(`${API_BASE_URL}/v1/posts`, {
         params,
         headers: {
           "x-rapidapi-key": API_KEY,
-          "x-rapidapi-host": "instagram-scraper-api2.p.rapidapi.com",
+          "x-rapidapi-host": API_HOST,
         },
       });
-
-      console.log("✅ Успешный ответ API:", response.data);
-      console.log(
-        "📌 Получен новый pagination_token:",
-        response.data.pagination_token
-      );
 
       return {
         posts: response.data.data.items || [],
