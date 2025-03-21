@@ -38,14 +38,7 @@ export const LogoContainer = styled.div`
     }
   }
 
-  @media screen and (min-width: 1280px) {
-    width: 260px;
-    height: 260px;
-    margin-left: 40px;
-
-    img {
-        width: 100%;
-        height: 100%;
-    }
+  @media screen and (min-width: 1240px) {
+   display: none;
   }
 `;
