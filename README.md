@@ -37,6 +37,15 @@
 - **React Redux**
 - **Axios**
 
+### 🔗 REST API Integration
+
+The app extensively utilizes RESTful APIs to retrieve Instagram data, including:
+
+- **Stories data (active and archived)**
+- **Posts, reels, and media content**
+- **User metadata and information**
+
+
 ### **Utilities & Development Tools:**
 
 - **Vite**
