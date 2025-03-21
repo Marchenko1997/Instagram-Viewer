@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const FeaturesWrapper = styled.div`
   text-align: center;
   color: var(--main-text);
-  margin-top: 100px; /* Меньше отступ для мобильных */
+  margin-top: 100px; 
   overflow: hidden;
+  
 
   @media screen and (min-width: 768px) {
     margin-top: 120px;
