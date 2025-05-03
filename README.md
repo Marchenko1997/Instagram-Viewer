@@ -2,7 +2,8 @@
 
 🌟 **Instagram Viewer** is a web-based application that allows users to anonymously view Instagram stories, posts, saved stories, and reels.
 
-**Attention!!!** Backend was deployed to render.com with free of charge plan. Can be delay about 50 seconds whith first HTTP-request.
+⚠️ **Attention!!!** Backend was deployed to render.com with free of charge plan. Can be delay about 50 seconds with first HTTP-request.
+
 
    
 ![Home page](./public/frontpage.png)
